@@ -99,7 +99,7 @@ export function ContactInfo() {
       {/* Trust Badge */}
       <div className="flex items-center justify-center gap-4 py-4">
         <div className="text-center">
-          <p className="text-2xl font-bold text-foreground">15+</p>
+          <p className="text-2xl font-bold text-foreground">25+</p>
           <p className="text-xs text-muted-foreground">Años de experiencia</p>
         </div>
         <div className="w-px h-12 bg-border" />

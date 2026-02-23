@@ -36,7 +36,7 @@ export function ProductCard({
         className
       )}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30">
+      <div className="relative aspect-[4/3] overflow-hidden bg-white">
         <Image
           src={product.image || "/placeholder.svg"}
           alt={product.name}

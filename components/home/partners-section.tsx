@@ -79,8 +79,8 @@ export function PartnersSection() {
                 >
                   <div
                     className="transition-all duration-300 ease-in-out
-                      brightness-0 invert opacity-55
-                      group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 group-hover:scale-105"
+                      grayscale opacity-50 dark:brightness-0 dark:invert dark:opacity-55
+                      group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 dark:group-hover:brightness-100 dark:group-hover:invert-0"
                   >
                     <Image
                       src={partner.logo}

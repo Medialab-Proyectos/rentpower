@@ -54,7 +54,7 @@ const navigation = [
         icon: FlaskConical,
         children: [
           { name: "Servicios LabPower", href: "/labpower", icon: Wrench },
-          { name: "Herramientas", href: "/labpower/herramientas", icon: Calculator },
+          { name: "Herramientas", href: "#", icon: Calculator, disabled: true, badge: "Próximamente" },
         ],
       },
     ],
@@ -147,13 +147,22 @@ export function Header() {
                               href={sub.href}
                               className={cn(
                                 "flex items-center gap-3 cursor-pointer w-full rounded-md px-4 py-2.5 text-sm text-popover-foreground transition-all duration-300",
-                                "hover:bg-gradient-to-r hover:from-[#00ffe3] hover:to-[#00a6d6] hover:text-black hover:pl-6 hover:shadow-lg",
-                                "focus:bg-gradient-to-r focus:from-[#00ffe3] focus:to-[#00a6d6] focus:text-black focus:pl-6",
-                                mounted && pathname === sub.href && "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] text-black font-medium pl-6 shadow-md"
+                                sub.disabled 
+                                  ? "opacity-50 cursor-not-allowed hover:bg-transparent hover:text-popover-foreground hover:pl-4" 
+                                  : "hover:bg-gradient-to-r hover:from-[#00ffe3] hover:to-[#00a6d6] hover:text-black hover:pl-6 hover:shadow-lg focus:bg-gradient-to-r focus:from-[#00ffe3] focus:to-[#00a6d6] focus:text-black focus:pl-6",
+                                mounted && pathname === sub.href && !sub.disabled && "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] text-black font-medium pl-6 shadow-md"
                               )}
+                              onClick={sub.disabled ? (e) => e.preventDefault() : undefined}
                             >
-                              {sub.icon && <sub.icon className="h-4 w-4 shrink-0" />}
-                              {sub.name}
+                              <div className="flex items-center gap-3 w-full">
+                                {sub.icon && <sub.icon className="h-4 w-4 shrink-0" />}
+                                <span>{sub.name}</span>
+                                {sub.badge && (
+                                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded-full">
+                                    {sub.badge}
+                                  </span>
+                                )}
+                              </div>
                             </Link>
                           </DropdownMenuItem>
                         ))}
@@ -245,11 +254,22 @@ export function Header() {
                                       <Link
                                         key={sub.name}
                                         href={sub.href}
-                                        onClick={() => setMobileOpen(false)}
-                                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                        onClick={(e) => {
+                                          if (sub.disabled) e.preventDefault();
+                                          else setMobileOpen(false);
+                                        }}
+                                        className={cn(
+                                          "flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground",
+                                          sub.disabled && "opacity-50 cursor-not-allowed hover:bg-transparent hover:text-muted-foreground"
+                                        )}
                                       >
                                         {sub.icon && <sub.icon className="h-4 w-4 text-primary" />}
-                                        {sub.name}
+                                        <span>{sub.name}</span>
+                                        {sub.badge && (
+                                          <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded-full">
+                                            {sub.badge}
+                                          </span>
+                                        )}
                                       </Link>
                                     ))}
                                   </div>

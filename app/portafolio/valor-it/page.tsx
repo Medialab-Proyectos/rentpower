@@ -37,7 +37,6 @@ export const metadata: Metadata = {
 };
 
 const kpis = [
-  { value: "+15M USD", label: "Ventas anuales" },
   { value: "+25 años", label: "De experiencia" },
   { value: "+1000", label: "Proyectos ejecutados" },
   { value: "8 Países", label: "Presencia regional" },

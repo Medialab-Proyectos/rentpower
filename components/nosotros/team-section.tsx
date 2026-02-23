@@ -5,22 +5,27 @@ export function TeamSection() {
     {
       name: "David Alejandro Daza Delgado",
       role: "CEO (Chief Executive Officer)",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alejandro-daza-95x95px-ZNzo1ubtlsiTnB7oAYBzPdlAFMuZdt.png"
+      image: "/images/uno.jpg"
     },
     {
       name: "Juan Felipe Galindo Vargas",
       role: "CSMO (Chief Sales and Marketing Officer)",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Juan-Felipe-Galindo-96x96px-D0mxYOd9nc2GYmi5wcBf5XiyDYsr8O.png"
+      image: "/images/dos.jpg"
     },
     {
       name: "Juan Camilo Galindo Vargas",
       role: "CFO (Chief Financial Officer)",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Juan-Camilo-Galindo-96x96px-9BrSQd9Gj4TEcNRHTTAoyKF1tHUCLH.png"
+      image: "/images/tres.jpg"
     },
     {
       name: "Juan Carlos Carranza Martinez",
       role: "Country Manager, Colombia",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Juan-Carlos-Carranza-96x96px-kfCIYeP4Yu89zLu7F8Axh304rjd4JV.png"
+      image: "/images/cuatro.jpg"
+    },
+     {
+      name: "Maria Fernanda",
+      role: "Chief Legal Officer, Colombia",
+      image: "/images/cinco.jpg"
     },
   ];
 
@@ -36,7 +41,7 @@ export function TeamSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
           {team.map((member, idx) => (
             <div key={idx} className="text-center group">
               <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-border/50 group-hover:border-accent/50 transition-all shadow-lg">

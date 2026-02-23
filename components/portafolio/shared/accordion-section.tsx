@@ -31,7 +31,7 @@ export function AccordionSection({ title, items, id, imageSrc }: AccordionSectio
         
         <div className={cn("grid gap-12 lg:gap-16", imageSrc ? "lg:grid-cols-2 lg:items-center" : "grid-cols-1")}>
           {imageSrc && (
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl lg:order-2">
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-border shadow-2xl lg:order-2">
               <Image 
                 src={imageSrc} 
                 alt={title || "Section Image"} 

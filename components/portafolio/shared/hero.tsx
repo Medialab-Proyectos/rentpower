@@ -31,7 +31,7 @@ export function Hero({
           {/* Text Content */}
           <div className="flex flex-col items-start space-y-6 lg:space-y-8">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl text-balance">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-accent">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-accent dark:from-white dark:via-white dark:to-accent">
                 {title}
               </span>
             </h1>
@@ -50,7 +50,7 @@ export function Hero({
                 asChild
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto rounded-full px-8 py-6 text-base border-white/20 hover:bg-white/10 hover:border-white/30 transition-all"
+                className="w-full sm:w-auto rounded-full px-8 py-6 text-base border-border hover:bg-muted transition-all"
               >
                 <Link href={secondaryCtaHref}>{secondaryCtaText}</Link>
               </Button>

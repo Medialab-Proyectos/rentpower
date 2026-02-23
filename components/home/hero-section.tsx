@@ -158,6 +158,7 @@ export function HeroSection() {
                 <Button 
                   size="lg" 
                   variant="outline"
+                  className="border-white/40 text-white bg-white/10 hover:bg-white/20 hover:border-white/60"
                   asChild
                 >
                   <Link href={slides[currentSlide].cta.secondaryHref}>{slides[currentSlide].cta.secondary}</Link>
@@ -176,7 +177,7 @@ export function HeroSection() {
                       "h-2 rounded-full transition-all relative z-40 cursor-pointer",
                       index === currentSlide
                         ? "w-8 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]"
-                        : "w-2 bg-white/30 hover:bg-white/50"
+                        : "w-2 bg-white/50 hover:bg-white/70"
                     )}
                     aria-label={`Ir a slide ${index + 1}`}
                   />
@@ -185,14 +186,14 @@ export function HeroSection() {
               <div className="flex gap-1 relative z-40">
                 <button
                   onClick={prevSlide}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-gray-900/40 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
                   aria-label="Slide anterior"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-gray-900/40 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
                   aria-label="Siguiente slide"
                 >
                   <ChevronRight className="h-4 w-4" />

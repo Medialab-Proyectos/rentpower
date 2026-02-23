@@ -6,7 +6,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function LandingHero() {
   return (
-    <section className="relative overflow-hidden bg-black">
+    <section className="relative overflow-hidden bg-[#0a0f0a] dark:bg-black">
       {/* Mac Surface Background - Subtle abstract texture */}
       <div className="pointer-events-none absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black" />
@@ -126,7 +126,7 @@ export function LandingHero() {
 
             {/* Floating card - Glassmorphic with subtle animation */}
             <div
-              className="absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
+              className="absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
               style={{ animation: 'float-card 6s ease-in-out infinite' }}
             >
               <div className="flex items-center gap-3">
@@ -144,7 +144,7 @@ export function LandingHero() {
 
             {/* Floating card 2 - Glassmorphic with subtle animation */}
             <div
-              className="absolute -right-4 top-8 rounded-xl border border-white/10 bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
+              className="absolute -right-4 top-8 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
               style={{ animation: 'float-card 6s ease-in-out infinite 1s' }}
             >
               <div className="flex items-center gap-3">

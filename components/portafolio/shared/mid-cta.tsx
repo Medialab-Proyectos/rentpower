@@ -22,11 +22,11 @@ const defaultIcons = [
 
 export function MidCTA({ title, ctaText, ctaHref, steps }: MidCTAProps) {
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-br from-muted/20 via-muted/10 to-transparent border-y border-white/5 overflow-hidden">
+    <section className="relative py-16 md:py-20 bg-gradient-to-br from-muted/30 via-muted/10 to-transparent border-y border-border/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
         <div className="text-center space-y-10">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-balance">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground dark:from-white dark:to-gray-300">
               {title}
             </span>
           </h2>
@@ -38,7 +38,7 @@ export function MidCTA({ title, ctaText, ctaHref, steps }: MidCTAProps) {
                 <div className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
                   index === 0 
                     ? "bg-accent/10 border-accent/30 text-accent font-semibold" 
-                    : "bg-card/30 border-white/10 text-muted-foreground"
+                    : "bg-card border-border text-muted-foreground"
                 }`}>
                   {step.icon || defaultIcons[index] || <span className="h-4 w-4" />}
                   <span className="font-medium">{step.label}</span>

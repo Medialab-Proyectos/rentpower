@@ -58,7 +58,7 @@ export function DaaSHero({
               asChild
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto rounded-full px-8 py-6 text-base border-white/40 text-white hover:bg-white/10 hover:border-white/50 transition-all"
+              className="w-full sm:w-auto rounded-full px-8 py-6 text-base border-white/60 text-white bg-white/10 hover:bg-white/20 hover:border-white/80 transition-all backdrop-blur-sm"
             >
               <Link href={secondaryCtaHref}>{secondaryCtaText}</Link>
             </Button>

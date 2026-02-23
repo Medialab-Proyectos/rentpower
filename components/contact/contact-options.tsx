@@ -11,7 +11,7 @@ const options = [
     title: "WhatsApp",
     description: "Respuesta inmediata en horario laboral",
     action: "Iniciar chat",
-    href: "https://wa.me/573001234567?text=Hola,%20me%20interesa%20información%20sobre%20Mac%20para%20empresas",
+    href: "https://wa.me/573104139279?text=Hola,%20me%20interesa%20información%20sobre%20Mac%20para%20empresas",
     highlight: true,
   },
   {

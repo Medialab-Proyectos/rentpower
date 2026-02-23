@@ -12,9 +12,9 @@ export function CTABanner({ title, subtitle, ctaText, ctaHref }: CTABannerProps)
   return (
     <section className="relative py-20 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
-        <div className="text-center space-y-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl">
+        <div className="text-center space-y-8 bg-card/90 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-balance">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-accent">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-accent dark:from-white dark:via-white dark:to-accent">
               {title}
             </span>
           </h2>

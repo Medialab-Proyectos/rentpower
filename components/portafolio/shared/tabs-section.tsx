@@ -14,7 +14,7 @@ interface TabsSectionProps {
 
 export function TabsSection({ title, items }: TabsSectionProps) {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-muted/5">
+    <section className="py-16 md:py-20 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {title && (
           <h2 className="mb-12 lg:mb-16 text-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance text-foreground">
@@ -34,7 +34,7 @@ export function TabsSection({ title, items }: TabsSectionProps) {
             ))}
           </TabsList>
           {items.map((item) => (
-            <TabsContent key={item.value} value={item.value} className="bg-card/50 p-8 rounded-2xl border border-border/50 mt-0 animate-in fade-in-0 zoom-in-95 duration-200">
+            <TabsContent key={item.value} value={item.value} className="bg-card p-8 rounded-2xl border border-border mt-0 animate-in fade-in-0 zoom-in-95 duration-200">
                <ul className="grid gap-4 sm:grid-cols-1">
                 {item.bullets.map((bullet, idx) => (
                   <li key={idx} className="flex items-start gap-3">

@@ -15,8 +15,8 @@ export function EducationVisualBanner() {
       {/* Overlays para suavizar los bordes superior e inferior y fusionarse con el sitio,
           y para darle un tono elegante que no sea demasiado brillante */}
       <div className="absolute inset-0 bg-black/30 transition-opacity hover:bg-black/10 duration-500" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-32 hidden dark:block bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-32 hidden dark:block bg-gradient-to-t from-background to-transparent" />
 
       {/* Badge decorativo centrado - opcional pero da un toque premium */}
       

@@ -9,7 +9,7 @@ export function HistoryTabs() {
     <section id="historia" className="py-16 md:py-24 bg-muted/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <Tabs defaultValue="historia" className="w-full">
-          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-3 mb-12 bg-card/50 p-1 h-auto">
+          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-3 mb-12 bg-card/50 p-1 border border-border h-auto shadow-sm">
             <TabsTrigger value="historia" className="py-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground rounded-lg">
               Nuestra historia
             </TabsTrigger>

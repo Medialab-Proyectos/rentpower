@@ -104,7 +104,7 @@ export function ApplePartnerSection() {
                     href={`/mac/${product.slug}`}
                     className="group relative overflow-hidden rounded-xl border border-border bg-secondary/30 p-4 transition-all hover:border-primary/50 hover:bg-secondary/50"
                   >
-                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-background/50">
+                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -136,7 +136,7 @@ export function ApplePartnerSection() {
                     href={`/mac/${product.slug}`}
                     className="group relative overflow-hidden rounded-xl border border-border bg-secondary/30 p-4 transition-all hover:border-primary/50 hover:bg-secondary/50"
                   >
-                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-background/50">
+                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -168,7 +168,7 @@ export function ApplePartnerSection() {
                     href={`/mac/${product.slug}`}
                     className="group relative overflow-hidden rounded-xl border border-border bg-secondary/30 p-4 transition-all hover:border-primary/50 hover:bg-secondary/50"
                   >
-                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-background/50">
+                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -200,7 +200,7 @@ export function ApplePartnerSection() {
                     href={`/mac/${product.slug}`}
                     className="group relative overflow-hidden rounded-xl border border-border bg-secondary/30 p-4 transition-all hover:border-primary/50 hover:bg-secondary/50"
                   >
-                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-background/50">
+                    <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
