@@ -55,14 +55,14 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2">
               <Image
-                src="/images/macpower-logo-original.png"
+                src="/images/macpower-logo-original.svg"
                 alt="MacPower IT Solutions"
                 width={200}
                 height={40}
                 className="h-8 w-auto dark:hidden"
               />
               <Image
-                src="/images/macpower-logo-white.png"
+                src="/images/macpower-logo-white.svg"
                 alt="MacPower IT Solutions"
                 width={200}
                 height={40}

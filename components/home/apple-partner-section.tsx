@@ -34,14 +34,14 @@ export function ApplePartnerSection() {
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/images/macpower-logo-original.png"
+                    src="/images/macpower-logo-original.svg"
                     alt="MacPower"
                     width={150}
                     height={30}
                     className="h-10 w-auto dark:hidden"
                   />
                   <Image
-                    src="/images/macpower-logo-white.png"
+                    src="/images/macpower-logo-white.svg"
                     alt="MacPower"
                     width={150}
                     height={30}

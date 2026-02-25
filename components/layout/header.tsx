@@ -90,7 +90,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/macpower-logo-original.png"
+              src="/images/macpower-logo-original.svg"
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}
@@ -98,7 +98,7 @@ export function Header() {
               priority
             />
             <Image
-              src="/images/macpower-logo-white.png"
+              src="/images/macpower-logo-white.svg"
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}

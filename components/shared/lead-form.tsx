@@ -163,7 +163,7 @@ export function LeadForm({
     });
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/vdaza@macpower.com.co", {
+      const response = await fetch("https://formsubmit.co/ajax/332dd2aa53b9df395cd70a5f37347886", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

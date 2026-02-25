@@ -188,7 +188,7 @@ export function PageIntro() {
             }}
           >
             <Image
-              src="/images/macpower-logo-white.png"
+              src="/images/macpower-logo-white.svg"
               alt="MacPower IT Solutions"
               width={260}
               height={52}
