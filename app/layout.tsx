@@ -12,6 +12,7 @@ const lato = Lato({
 
 import { StructuredData } from '@/components/structured-data'
 import { WatiWidget } from '@/components/shared/wati-widget'
+import { CookieConsent } from '@/components/shared/cookie-consent'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.macpower.com.co'),
@@ -132,6 +133,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         >
           <PageIntro />
           {children}
+          <CookieConsent />
           <WatiWidget />
         </ThemeProvider>
       </body>

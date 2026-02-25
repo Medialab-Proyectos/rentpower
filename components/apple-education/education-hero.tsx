@@ -57,13 +57,7 @@ export function EducationHero() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Content */}
           <div className="relative z-10">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-400 shadow-lg shadow-cyan-500/10 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
-              </span>
-              Apple Business Partner
-            </div>
+          
 
             <h1 className="mb-6 text-4xl font-bold leading-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl text-balance">
               <span className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] bg-clip-text text-transparent drop-shadow-lg">Apple</span>{" "}
@@ -98,7 +92,7 @@ export function EducationHero() {
                 src="/images/empresas.png"
                 alt="Apple devices for education"
                 fill
-                className="object-cover opacity-90 mix-blend-luminosity"
+                className="object-cover opacity-90"
                 priority
               />
               {/* Glassmorphic overlay with subtle cyan tint */}

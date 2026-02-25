@@ -90,10 +90,10 @@ const howHeardOptions = [
   { value: "instagram", label: "Instagram" },
   { value: "facebook", label: "Facebook" },
   { value: "linkedin", label: "LinkedIn" },
-  { value: "web", label: "Web" },
+  { value: "google", label: "Google" },
   { value: "referidos", label: "Familiares y/o amigos" },
   { value: "evento", label: "Evento" },
-  { value: "otro", label: "Otro" },
+  { value: "otro", label: "Otro (campo abierto)" },
 ];
 
 export function LeadForm({
@@ -162,12 +162,40 @@ export function LeadForm({
       interest: formData.interest,
     });
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vdaza@macpower.com.co", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          FormType: variant || "standard",
+          Nombre: formData.firstName || formData.fullName,
+          Apellido: formData.lastName,
+          Email: formData.email,
+          Teléfono: formData.phone,
+          Empresa: formData.company,
+          Rol: formData.role,
+          TamañoEmpresa: formData.companySize,
+          Interes: formData.interest,
+          Solucion: formData.solution,
+          Presupuesto: formData.hasBudget,
+          Tiempo: formData.timeline,
+          ComoNosConocio: formData.howHeard === "otro" ? formData.howHeardOther : formData.howHeard,
+          Mensaje: formData.message,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    onSuccess?.();
+      if (response.ok) {
+        setIsSuccess(true);
+        onSuccess?.();
+      }
+    } catch (error) {
+      console.error("Error al enviar formulario", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: keyof FormData, value: string) => {

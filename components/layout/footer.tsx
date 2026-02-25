@@ -28,6 +28,7 @@ const footerLinks = {
       { name: "Inicio", href: "/" },
       { name: "Nosotros", href: "/nosotros" },
       { name: "Eventos", href: "/#eventos" },
+      { name: "Política de Protección de Datos", href: "/files/politica-proteccion-datos.pdf" },
     ],
   },
   
@@ -115,17 +116,7 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             &copy; {year ?? ""} MacPower. Todos los derechos reservados.
           </p>
-          <div className="flex gap-6 text-xs text-muted-foreground">
-            <Link href="#" className="hover:text-primary">
-              Privacidad
-            </Link>
-            <Link href="#" className="hover:text-primary">
-              Términos
-            </Link>
-            <Link href="#" className="hover:text-primary">
-              Cookies
-            </Link>
-          </div>
+
           <p className="text-xs text-muted-foreground">
             Diseñado y desarrollado por MacPower
           </p>

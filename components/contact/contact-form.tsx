@@ -27,6 +27,7 @@ export function ContactForm() {
     periodo: "",
     presupuesto: "",
     contacto: "",
+    contactoOtro: "",
   });
 
   const showBANT = empresa.trim().length > 0;
@@ -34,12 +35,36 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    console.log("[v0] ContactForm submitted", { empresa, ...formData, showBANT });
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setStatus("success");
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vdaza@macpower.com.co", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Empresa: empresa || "No especificada",
+          Nombre: formData.nombreCompleto,
+          Email: formData.email,
+          Teléfono: formData.telefono,
+          Cargo: formData.cargo,
+          Solución: formData.solucion,
+          Mensaje: formData.mensaje,
+          Periodo: formData.periodo,
+          Presupuesto: formData.presupuesto,
+          Contacto: formData.contacto === "otro" ? formData.contactoOtro : formData.contacto,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
@@ -68,6 +93,7 @@ export function ContactForm() {
               periodo: "",
               presupuesto: "",
               contacto: "",
+              contactoOtro: "",
             });
           }}
           variant="outline"
@@ -303,13 +329,27 @@ export function ContactForm() {
               <SelectValue placeholder="Selecciona" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="web">Web</SelectItem>
-              <SelectItem value="redes-sociales">Redes Sociales</SelectItem>
-              <SelectItem value="referido">Referido</SelectItem>
+              <SelectItem value="instagram">Instagram</SelectItem>
+              <SelectItem value="facebook">Facebook</SelectItem>
+              <SelectItem value="linkedin">LinkedIn</SelectItem>
+              <SelectItem value="google">Google</SelectItem>
+              <SelectItem value="familia-amigos">Familiares y/o amigos</SelectItem>
               <SelectItem value="evento">Evento</SelectItem>
-              <SelectItem value="otro">Otro</SelectItem>
+              <SelectItem value="otro">Otro (campo abierto)</SelectItem>
             </SelectContent>
           </Select>
+          {formData.contacto === "otro" && (
+            <div className="pt-2">
+              <Input
+                placeholder="Especifica cómo nos conociste"
+                className="bg-secondary border-border"
+                value={formData.contactoOtro}
+                onChange={(e) =>
+                  setFormData({ ...formData, contactoOtro: e.target.value })
+                }
+              />
+            </div>
+          )}
         </div>
 
         {/* Submit Button */}

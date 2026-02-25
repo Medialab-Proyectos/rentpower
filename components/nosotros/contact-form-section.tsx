@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, CheckCircle } from "lucide-react";
 
 export function ContactFormSection() {
   const [empresa, setEmpresa] = useState("");
@@ -26,14 +26,46 @@ export function ContactFormSection() {
     periodo: "",
     presupuesto: "",
     contacto: "",
+    contactoOtro: "",
   });
 
   const showBANT = empresa.trim().length > 0;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("[v0] Form submitted", { empresa, ...formData, showBANT });
-    // Handle form submission
+    setStatus("loading");
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vdaza@macpower.com.co", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Empresa: empresa || "No especificada",
+          Nombre: formData.nombreCompleto,
+          Email: formData.email,
+          Teléfono: formData.telefono,
+          Cargo: formData.cargo,
+          Solución: formData.solucion,
+          Mensaje: formData.mensaje,
+          Periodo: formData.periodo,
+          Presupuesto: formData.presupuesto,
+          Contacto: formData.contacto === "otro" ? formData.contactoOtro : formData.contacto,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -51,6 +83,33 @@ export function ContactFormSection() {
         <div className="grid lg:grid-cols-[1fr_400px] gap-8 max-w-6xl mx-auto">
           {/* Form Section */}
           <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
+            {status === "success" ? (
+              <div className="text-center h-full flex flex-col justify-center items-center py-12">
+                <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
+                  <CheckCircle className="h-8 w-8 text-green-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-2">
+                  ¡Mensaje enviado correctamente!
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Pronto uno de nuestros asesores se comunicará contigo.
+                </p>
+                <Button 
+                  onClick={() => {
+                    setStatus("idle");
+                    setEmpresa("");
+                    setFormData({
+                      nombreCompleto: "", email: "", telefono: "", cargo: "",
+                      solucion: "", mensaje: "", periodo: "", presupuesto: "", contacto: "", contactoOtro: ""
+                    });
+                  }}
+                  variant="outline"
+                  className="border-border bg-transparent mt-4"
+                >
+                  Enviar otro mensaje
+                </Button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Nombre Completo */}
@@ -260,13 +319,26 @@ export function ContactFormSection() {
                     <SelectValue placeholder="Web" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="web">Web</SelectItem>
-                    <SelectItem value="redes-sociales">Redes Sociales</SelectItem>
-                    <SelectItem value="referido">Referido</SelectItem>
+                    <SelectItem value="instagram">Instagram</SelectItem>
+                    <SelectItem value="facebook">Facebook</SelectItem>
+                    <SelectItem value="linkedin">LinkedIn</SelectItem>
+                    <SelectItem value="google">Google</SelectItem>
+                    <SelectItem value="familia-amigos">Familiares y/o amigos</SelectItem>
                     <SelectItem value="evento">Evento</SelectItem>
-                    <SelectItem value="otro">Otro</SelectItem>
+                    <SelectItem value="otro">Otro (campo abierto)</SelectItem>
                   </SelectContent>
                 </Select>
+                {formData.contacto === "otro" && (
+                  <div className="pt-2">
+                    <Input
+                      placeholder="Especifica cómo nos conociste"
+                      value={formData.contactoOtro}
+                      onChange={(e) =>
+                        setFormData({ ...formData, contactoOtro: e.target.value })
+                      }
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Submit Button */}
@@ -274,10 +346,12 @@ export function ContactFormSection() {
                 type="submit"
                 size="lg"
                 className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"
+                disabled={status === "loading"}
               >
-                Enviar
+                {status === "loading" ? "Enviando..." : "Enviar"}
               </Button>
             </form>
+            )}
           </div>
 
           {/* Right Panel - WhatsApp Only */}
