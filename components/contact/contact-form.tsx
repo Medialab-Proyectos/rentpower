@@ -123,7 +123,7 @@ export function ContactForm() {
             </Label>
             <Input
               id="nombreCompleto"
-              placeholder="Valentina Daza"
+              placeholder="Juan Rodriguez"
               required
               className="bg-secondary border-border"
               value={formData.nombreCompleto}
@@ -141,7 +141,7 @@ export function ContactForm() {
             <Input
               id="email"
               type="email"
-              placeholder="vdaza@macpower.com.co"
+              placeholder="jrodriguez@scp.com.co"
               required
               className="bg-secondary border-border"
               value={formData.email}

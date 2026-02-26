@@ -20,7 +20,7 @@ const slides = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Inicio-apple-1500x600px%20%282%29-P3fpHvJDA6xZ6IztoN3akKvuAXddDf.png",
     title: "Apple integrado, gestionado y optimizado para cada entorno",
     subtitle: "Diseñamos, implementamos y gestionamos el ecosistema Apple para organizaciones e individuos que buscan tecnología confiable, segura y fácil de administrar.",
-    description: "Despliegue automatizado, gestión centralizada, seguridad avanzada y soporte certificado en cada etapa.",
+    description: "Somos Apple Business Partner autorizado, lo que certifica que cumplimos con los estándares de Apple en conocimiento técnico, asesoría y prestación de servicios.",
     cta: { primary: "Explora Soluciones Apple", primaryHref: "/mac-para-empresas", secondary: "Conocer Apple con MacPower", secondaryHref: "/mac" },
   },
   {

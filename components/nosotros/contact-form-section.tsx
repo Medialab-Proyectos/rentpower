@@ -119,7 +119,7 @@ export function ContactFormSection() {
                   </Label>
                   <Input
                     id="nombreCompleto"
-                    placeholder="Valentina Daza"
+                    placeholder="Juan Rodriguez"
                     required
                     value={formData.nombreCompleto}
                     onChange={(e) =>
@@ -136,7 +136,7 @@ export function ContactFormSection() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="vdaza@macpower.com.co"
+                    placeholder="jrodriguez@scp.com.co"
                     required
                     value={formData.email}
                     onChange={(e) =>
