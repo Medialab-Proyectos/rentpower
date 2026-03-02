@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { MessageSquare, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 export function ContactFormSection() {
   const [empresa, setEmpresa] = useState("");
@@ -80,7 +80,7 @@ export function ContactFormSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_400px] gap-8 max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Form Section */}
           <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
             {status === "success" ? (
@@ -352,35 +352,6 @@ export function ContactFormSection() {
               </Button>
             </form>
             )}
-          </div>
-
-          {/* Right Panel - WhatsApp Only */}
-          <div className="bg-gradient-to-br from-[#1e5a47] to-[#0f3d2f] rounded-2xl p-6 md:p-8 text-white h-fit lg:sticky lg:top-24">
-            <h3 className="text-2xl font-bold mb-6">Contáctanos por WhatsApp</h3>
-
-            <div className="space-y-4">
-              {/* Ventas Corporativas */}
-              <a
-                href="https://wa.me/573001234567"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg p-4 transition-all hover:scale-105"
-              >
-                <MessageSquare className="h-6 w-6 text-[#00ffe3]" />
-                <span className="font-medium">Ventas Corporativas</span>
-              </a>
-
-              {/* Servicio Técnico */}
-              <a
-                href="https://wa.me/573001234567"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg p-4 transition-all hover:scale-105"
-              >
-                <MessageSquare className="h-6 w-6 text-[#00ffe3]" />
-                <span className="font-medium">Servicio Técnico</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>

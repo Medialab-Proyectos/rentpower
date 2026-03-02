@@ -82,9 +82,5 @@ export function StickyCTA({
     </div>
   );
 
-  return (
-    <>
-      <MobileCTA />
-    </>
-  );
+  return null;
 }

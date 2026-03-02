@@ -34,7 +34,7 @@ const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Nosotros", href: "/nosotros" },
   {
-    name: "Apple",
+    name: "Soluciones Apple",
     href: "/apple",
     children: [
       { name: "Apple para empresas", href: "/mac-para-empresas", icon: Laptop },

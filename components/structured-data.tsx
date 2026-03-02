@@ -19,9 +19,9 @@ export function StructuredData() {
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Calle 93 # 12-14",
-      "addressLocality": "Bogotá",
-      "addressRegion": "Cundinamarca",
+      "streetAddress": "Calle 74 # 15-80, Oficina 101, Edificio Osaka Center",
+      "addressLocality": "Bogotá, Colombia",
+      "addressRegion": "DC",
       "postalCode": "110221",
       "addressCountry": "CO"
     },

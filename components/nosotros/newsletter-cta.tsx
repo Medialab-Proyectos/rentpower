@@ -36,15 +36,6 @@ export function NewsletterCTA() {
           </p>
         </div>
 
-        <div className="max-w-md mx-auto mb-12">
-          <Button 
-            size="lg" 
-            className="w-full bg-accent text-accent-foreground hover:opacity-90 rounded-full py-6 text-base font-semibold"
-            onClick={() => window.open('https://wa.me/573003003000', '_blank')}
-          >
-            Text
-          </Button>
-        </div>
 
         <div className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 max-w-xl mx-auto">
           <h3 className="text-xl font-bold mb-2 text-center text-white">

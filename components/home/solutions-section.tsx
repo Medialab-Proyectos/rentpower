@@ -24,7 +24,7 @@ const solutions = [
   },
   {
     id: "apple",
-    title: "Apple",
+    title: "Soluciones Apple",
     description: "Diseñamos, implementamos e integramos el ecosistema Apple para que funcione de forma segura, escalable y alineada a cada entorno operativo.",
     icon: Laptop,
     href: "/mac-para-empresas",
@@ -35,7 +35,7 @@ const solutions = [
   {
     id: "labpower",
     title: "LabPower",
-    description: "Centro Técnico Certificado Apple que ofrece diagnóstico, reparación autorizada, borrado seguro y gestión de garantías de marca y extendidas, asegurando la máxima disponibilidad de tus equipos.",
+    description: "Centro de Servicio Autorizado Apple que ofrece diagnóstico, reparación autorizada, borrado seguro y gestión de garantías de marca y extendidas, asegurando la máxima disponibilidad de tus equipos.",
     icon: Wrench,
     href: "/labpower",
     benefits: ["Técnicos certificados y repuestos originales", "Garantías extendidas y daño accidental", "Procesos seguros y trazables"],

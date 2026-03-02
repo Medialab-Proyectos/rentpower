@@ -3,11 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Apple, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Apple, Facebook, Twitter, Linkedin, Instagram, MapPin } from "lucide-react";
 
 const footerLinks = {
   apple: {
-    title: "Apple",
+    title: "Soluciones Apple",
     links: [
       { name: "Apple para empresas", href: "/mac-para-empresas" },
       { name: "Apple para educación", href: "/apple-educacion" },
@@ -72,6 +72,17 @@ export function Footer() {
             <p className="mt-4 text-sm text-muted-foreground">
               Somos tu aliado para facilitar la inversión de soluciones IT que optimicen los procesos de tu empresa.
             </p>
+
+            <div className="mt-6 flex flex-col gap-3">
+              <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <span>
+                  Calle 74 # 15-80, Oficina 101<br />
+                  Edificio Osaka Center, Bogotá, Colombia<br />
+                  Código Postal:110221
+                </span>
+              </div>
+            </div>
            
             <div className="mt-6 flex gap-3">
               {socialLinks.map((social) => (
