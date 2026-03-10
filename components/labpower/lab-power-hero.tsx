@@ -1,14 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export function LabPowerHero() {
-  const scrollToEstimator = () => {
-    const estimator = document.getElementById('service-estimator');
-    estimator?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pb-24 min-h-[450px] md:min-h-[600px] flex items-center">
       <div className="absolute inset-0 z-0 bg-black">
@@ -35,15 +28,22 @@ export function LabPowerHero() {
             <p className="text-xl sm:text-2xl leading-relaxed text-white/90 text-pretty text-left">
               Diagnóstico, reparación y seguimiento de tu equipo con respaldo experto.
             </p>
-          
-            <div className="pt-2">
+
+            <div className="pt-2 flex items-center gap-3 flex-wrap">
               <Button
-                onClick={scrollToEstimator}
+                disabled
+                aria-disabled="true"
                 size="lg"
-                className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 shadow-lg transition-all duration-300 rounded-full px-10 py-6 text-lg hover:shadow-xl hover:shadow-cyan-500/50"
+                className="bg-gradient-to-r from-[#00ffe3]/20 to-[#00a6d6]/20 text-white/30 font-bold border border-white/10 shadow-none rounded-full px-10 py-6 text-lg cursor-not-allowed pointer-events-none"
               >
                 Cotizar mi servicio
               </Button>
+              <span
+                aria-label="Próximamente disponible"
+                className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-widest whitespace-nowrap"
+              >
+                Próximamente
+              </span>
             </div>
           </div>
         </div>

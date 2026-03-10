@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && claude init)",
+      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && pnpm add xlsx)",
+      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && npm install xlsx)"
+    ]
+  }
+}

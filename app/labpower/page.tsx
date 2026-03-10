@@ -10,7 +10,7 @@ import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 
 export const metadata = {
   title: "LabPower - Servicio Técnico Apple | MacPower",
-  description: ": Centro de Servicio Autorizado Apple - Diagnóstico, reparación certificada y garantías extendidas con repuestos originales y técnicos certificados",
+  description: "Centro de Servicio Autorizado Apple - Diagnóstico, reparación certificada y garantías extendidas con repuestos originales y técnicos certificados",
 };
 
 export default function LabPowerPage() {

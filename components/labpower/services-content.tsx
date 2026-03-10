@@ -79,13 +79,12 @@ export function ServicesContent() {
                 </p>
                 {/* CTA */}
                 <div className="mt-5 pt-4 border-t border-border/30">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 hover:text-[#00ffe3] font-semibold text-xs transition-all duration-200 group-hover:bg-[#00ffe3]/10"
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
                   >
                     Consultar garantía →
-                  </Button>
+                  </span>
                 </div>
               </div>
 
@@ -102,13 +101,12 @@ export function ServicesContent() {
                   Cada servicio sigue los protocolos y procedimientos oficiales definidos por Apple para garantizar resultados confiables.
                 </p>
                 <div className="mt-5 pt-4 border-t border-border/30">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 hover:text-[#00ffe3] font-semibold text-xs transition-all duration-200 group-hover:bg-[#00ffe3]/10"
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
                   >
                     Consultar garantía →
-                  </Button>
+                  </span>
                 </div>
               </div>
 
@@ -125,13 +123,12 @@ export function ServicesContent() {
                   Trabajamos exclusivamente con piezas originales certificadas por Apple, asegurando la integridad y el rendimiento de tu dispositivo.
                 </p>
                 <div className="mt-5 pt-4 border-t border-border/30">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 hover:text-[#00ffe3] font-semibold text-xs transition-all duration-200 group-hover:bg-[#00ffe3]/10"
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
                   >
                     Consultar garantía →
-                  </Button>
+                  </span>
                 </div>
               </div>
 
@@ -148,13 +145,12 @@ export function ServicesContent() {
                   Nuestro equipo cuenta con certificaciones Apple oficiales que garantizan el más alto nivel de expertise técnico en cada intervención.
                 </p>
                 <div className="mt-5 pt-4 border-t border-border/30">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 hover:text-[#00ffe3] font-semibold text-xs transition-all duration-200 group-hover:bg-[#00ffe3]/10"
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
                   >
                     Consultar garantía →
-                  </Button>
+                  </span>
                 </div>
               </div>
 
@@ -166,9 +162,18 @@ export function ServicesContent() {
             <p className="text-xs text-muted-foreground italic">
               *Aplican términos y condiciones según el plan seleccionado.
             </p>
-            <Button className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold shrink-0">
-              Ver planes de garantía
-            </Button>
+            <div className="flex items-center gap-2 shrink-0">
+              <Button
+                disabled
+                aria-disabled="true"
+                className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none"
+              >
+                Ver planes de garantía
+              </Button>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 uppercase tracking-widest whitespace-nowrap">
+                Próximamente
+              </span>
+            </div>
           </div>
         </section>
 
@@ -290,9 +295,12 @@ export function ServicesContent() {
                   </ul>
                 </div>
                 <div className="mt-auto px-7 pb-5 pt-4 border-t border-border/20">
-                  <Button size="sm" variant="ghost" className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 font-semibold text-xs">
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
+                  >
                     Consultar servicio →
-                  </Button>
+                  </span>
                 </div>
               </div>
             ))}
@@ -307,9 +315,19 @@ export function ServicesContent() {
               <Badge className="mb-2 px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">Empresas</Badge>
               <h3 className="text-2xl font-bold text-foreground">Servicios gestionados y empresariales</h3>
             </div>
-            <Button size="sm" className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold shrink-0">
-              Cotizar plan
-            </Button>
+            <div className="flex items-center gap-2 shrink-0">
+              <Button
+                disabled
+                aria-disabled="true"
+                size="sm"
+                className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none"
+              >
+                Cotizar plan
+              </Button>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 uppercase tracking-widest whitespace-nowrap">
+                Próximamente
+              </span>
+            </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
@@ -365,7 +383,12 @@ export function ServicesContent() {
               <Badge className="mb-2 px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">Instituciones educativas</Badge>
               <h3 className="text-2xl font-bold text-foreground">Educación</h3>
             </div>
-            <Button size="sm" className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold shrink-0">
+            <Button
+              disabled
+              aria-disabled="true"
+              size="sm"
+              className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none shrink-0"
+            >
               Conocer programa
             </Button>
           </div>
@@ -422,7 +445,12 @@ export function ServicesContent() {
               <Badge className="mb-2 px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">Formación</Badge>
               <h3 className="text-2xl font-bold text-foreground">Capacitación y formación</h3>
             </div>
-            <Button size="sm" className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold shrink-0">
+            <Button
+              disabled
+              aria-disabled="true"
+              size="sm"
+              className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none shrink-0"
+            >
               Ver programas
             </Button>
           </div>
@@ -464,9 +492,12 @@ export function ServicesContent() {
                 <h4 className="font-bold text-foreground mb-2 text-sm leading-tight">{label}</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed flex-1">{desc}</p>
                 <div className="mt-5 pt-4 border-t border-border/20">
-                  <Button size="sm" variant="ghost" className="w-full text-[#00ffe3] hover:bg-[#00ffe3]/10 font-semibold text-xs">
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center w-full text-muted-foreground/30 font-semibold text-xs cursor-default select-none"
+                  >
                     Consultar programa →
-                  </Button>
+                  </span>
                 </div>
               </div>
             ))}
@@ -522,11 +553,25 @@ export function ServicesContent() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold">
-                Agendar diagnóstico
-              </Button>
-              <Button variant="outline" className="border-[#00ffe3]/30 text-[#00ffe3] hover:bg-[#00ffe3]/10 font-semibold">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Button
+                  disabled
+                  aria-disabled="true"
+                  className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none"
+                >
+                  Agendar diagnóstico
+                </Button>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 uppercase tracking-widest whitespace-nowrap">
+                  Próximamente
+                </span>
+              </div>
+              <Button
+                disabled
+                aria-disabled="true"
+                variant="outline"
+                className="border-border/30 text-muted-foreground/40 font-semibold cursor-not-allowed pointer-events-none"
+              >
                 Ver precios de reparación
               </Button>
             </div>
