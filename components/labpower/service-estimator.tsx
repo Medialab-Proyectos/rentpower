@@ -1,84 +1,88 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Laptop, Smartphone, Tablet, ChevronRight, ChevronLeft, MessageCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronLeft, MessageCircle, Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { LabPowerItem, ProductType, UICategory } from "@/lib/labpower/types";
 
-type DeviceType = "MacBook" | "iPhone" | "iPad" | null;
-type IssueType = "Hardware" | "Software" | null;
-type ComponentType = "Screen" | "Keyboard" | "Battery" | "Sound" | "Charging Port" | "Other" | null;
-
-interface PricingData {
-  device: DeviceType;
-  component: ComponentType;
-  partCost: number;
-  laborCost: number;
-}
-
-const pricingTable: PricingData[] = [
-  { device: "MacBook", component: "Screen", partCost: 350, laborCost: 50 },
-  { device: "MacBook", component: "Keyboard", partCost: 200, laborCost: 40 },
-  { device: "MacBook", component: "Battery", partCost: 150, laborCost: 30 },
-  { device: "MacBook", component: "Sound", partCost: 100, laborCost: 40 },
-  { device: "MacBook", component: "Charging Port", partCost: 120, laborCost: 35 },
-  { device: "MacBook", component: "Other", partCost: 180, laborCost: 50 },
-  { device: "iPhone", component: "Screen", partCost: 180, laborCost: 30 },
-  { device: "iPhone", component: "Battery", partCost: 80, laborCost: 20 },
-  { device: "iPhone", component: "Sound", partCost: 60, laborCost: 25 },
-  { device: "iPhone", component: "Charging Port", partCost: 70, laborCost: 25 },
-  { device: "iPhone", component: "Other", partCost: 100, laborCost: 30 },
-  { device: "iPad", component: "Screen", partCost: 250, laborCost: 40 },
-  { device: "iPad", component: "Battery", partCost: 120, laborCost: 25 },
-  { device: "iPad", component: "Sound", partCost: 80, laborCost: 30 },
-  { device: "iPad", component: "Charging Port", partCost: 90, laborCost: 25 },
-  { device: "iPad", component: "Other", partCost: 130, laborCost: 35 },
-];
-
-const commonIssues: Record<ComponentType | "default", string[]> = {
-  Screen: ["Pantalla no enciende", "Pantalla rota o agrietada", "Líneas o píxeles muertos", "Manchas en pantalla"],
-  Keyboard: ["Teclas no responden", "Teclas pegajosas", "Agua derramada", "Tecla rota"],
-  Battery: ["Batería se descarga rápido", "No carga", "Batería hinchada", "Apagones inesperados"],
-  Sound: ["Sin sonido", "Audio distorsionado", "Micrófono no funciona", "Volumen bajo"],
-  "Charging Port": ["No carga", "Cable se desconecta", "Puerto flojo", "Puerto dañado"],
-  Other: ["Problema no listado", "Múltiples fallas", "Diagnóstico requerido"],
-  default: [],
+// Íconos simples por tipo de producto
+const PRODUCT_ICONS: Partial<Record<ProductType, string>> = {
+  "MacBook Air":  "💻",
+  "MacBook Pro":  "💻",
+  "iMac":         "🖥️",
+  "Mac mini":     "🖥️",
+  "Mac Studio":   "🖥️",
+  "Mac Pro":      "🖥️",
+  "iPhone":       "📱",
+  "iPad":         "📲",
+  "AirPods":      "🎧",
+  "Apple Watch":  "⌚",
+  "Apple Pencil": "✏️",
+  "Otro":         "🔧",
 };
 
+type Step = 1 | 2 | 3 | 4;
+
 export function ServiceEstimator() {
-  const [step, setStep] = useState(1);
-  const [device, setDevice] = useState<DeviceType>(null);
-  const [issueType, setIssueType] = useState<IssueType>(null);
-  const [component, setComponent] = useState<ComponentType>(null);
-  const [selectedIssue, setSelectedIssue] = useState<string>("");
+  const [items, setItems]         = useState<LabPowerItem[]>([]);
+  const [loading, setLoading]     = useState(true);
+  const [error, setError]         = useState<string | null>(null);
 
-  const resetEstimator = () => {
+  const [step, setStep]                     = useState<Step>(1);
+  const [selectedType, setSelectedType]     = useState<ProductType | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<UICategory | null>(null);
+  const [issueKind, setIssueKind]           = useState<"Hardware" | "Software" | null>(null);
+
+  useEffect(() => {
+    fetch("/api/labpower/parts")
+      .then((r) => {
+        if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+        return r.json();
+      })
+      .then((data: { items: LabPowerItem[] }) => setItems(data.items))
+      .catch(() => setError("No se pudieron cargar los datos de cotización."))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const reset = () => {
     setStep(1);
-    setDevice(null);
-    setIssueType(null);
-    setComponent(null);
-    setSelectedIssue("");
+    setSelectedType(null);
+    setSelectedCategory(null);
+    setIssueKind(null);
   };
 
-  const getEstimate = (): { partCost: number; laborCost: number; total: number } | null => {
-    if (!device || !component) return null;
-    const pricing = pricingTable.find(p => p.device === device && p.component === component);
-    if (!pricing) return null;
-    return {
-      partCost: pricing.partCost,
-      laborCost: pricing.laborCost,
-      total: pricing.partCost + pricing.laborCost,
-    };
-  };
+  // Tipos de producto disponibles en los datos
+  const availableTypes: ProductType[] = [
+    ...new Set(items.map((i) => i.tipoProducto)),
+  ].sort();
+
+  // Categorías disponibles para el tipo seleccionado
+  const availableCategories: UICategory[] = selectedType
+    ? [...new Set(
+        items
+          .filter((i) => i.tipoProducto === selectedType)
+          .map((i) => i.categoriaUI)
+      )].sort()
+    : [];
+
+  // Items del resultado final
+  const resultItems: LabPowerItem[] = (selectedType && selectedCategory)
+    ? items.filter(
+        (i) => i.tipoProducto === selectedType && i.categoriaUI === selectedCategory
+      )
+    : [];
 
   const openWhatsApp = () => {
-    const estimate = getEstimate();
-    const message = `Hola, quisiera cotizar un servicio:\n- Dispositivo: ${device}\n- Componente: ${component}\n- Problema: ${selectedIssue}\n- Estimado: $${estimate?.total} USD`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/573002345678?text=${encodedMessage}`, '_blank');
+    const msg = `Hola, quisiera cotizar un servicio:\n- Dispositivo: ${selectedType}\n- Componente: ${selectedCategory}`;
+    window.open(
+      `https://wa.me/573002345678?text=${encodeURIComponent(msg)}`,
+      "_blank"
+    );
   };
+
+  const totalSteps = issueKind === "Software" ? 2 : 3;
 
   return (
     <section id="service-estimator" className="py-16 md:py-20 lg:py-24 bg-muted/5">
@@ -95,16 +99,19 @@ export function ServiceEstimator() {
         <Card className="bg-card border-border/50">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle>Paso {step} de {issueType === "Software" ? 2 : component ? 5 : 3}</CardTitle>
+              <CardTitle>
+                {step <= totalSteps
+                  ? `Paso ${step} de ${totalSteps}`
+                  : "Resultados"}
+              </CardTitle>
               {step > 1 && (
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => {
-                    if (step === 5) setStep(4);
-                    else if (step === 4) setStep(3);
-                    else if (step === 3) setStep(2);
-                    else if (step === 2) setStep(1);
+                    if (step === 4) { setStep(3); setSelectedCategory(null); }
+                    else if (step === 3) { setStep(2); setIssueKind(null); }
+                    else if (step === 2) { setStep(1); setSelectedType(null); }
                   }}
                 >
                   <ChevronLeft className="h-4 w-4 mr-1" />
@@ -113,63 +120,79 @@ export function ServiceEstimator() {
               )}
             </div>
           </CardHeader>
+
           <CardContent className="space-y-6">
-            {/* Step 1: Device Type */}
-            {step === 1 && (
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Selecciona tu dispositivo</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {[
-                    { name: "MacBook", icon: Laptop },
-                    { name: "iPhone", icon: Smartphone },
-                    { name: "iPad", icon: Tablet },
-                  ].map(({ name, icon: Icon }) => (
-                    <Card
-                      key={name}
-                      className={cn(
-                        "cursor-pointer transition-all hover:scale-105 hover:border-accent/50",
-                        device === name && "border-accent bg-accent/5"
-                      )}
-                      onClick={() => {
-                        setDevice(name as DeviceType);
-                        setStep(2);
-                      }}
-                    >
-                      <CardContent className="pt-6 pb-6 flex flex-col items-center gap-3">
-                        <Icon className="h-12 w-12 text-accent" />
-                        <span className="font-semibold text-lg">{name}</span>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+            {/* Estado de carga / error */}
+            {loading && (
+              <div className="flex flex-col items-center gap-3 py-12 text-muted-foreground">
+                <Loader2 className="h-8 w-8 animate-spin" />
+                <p>Cargando datos de cotización…</p>
               </div>
             )}
 
-            {/* Step 2: Issue Type */}
-            {step === 2 && (
+            {!loading && error && (
+              <div className="flex flex-col items-center gap-3 py-12 text-destructive">
+                <AlertCircle className="h-8 w-8" />
+                <p>{error}</p>
+              </div>
+            )}
+
+            {/* Paso 1: Tipo de producto */}
+            {!loading && !error && step === 1 && (
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Selecciona tu dispositivo</h3>
+                {availableTypes.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">
+                    No hay datos disponibles en este momento.
+                  </p>
+                ) : (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {availableTypes.map((type) => (
+                      <Card
+                        key={type}
+                        className={cn(
+                          "cursor-pointer transition-all hover:scale-105 hover:border-accent/50",
+                          selectedType === type && "border-accent bg-accent/5"
+                        )}
+                        onClick={() => {
+                          setSelectedType(type);
+                          setStep(2);
+                        }}
+                      >
+                        <CardContent className="pt-6 pb-6 flex flex-col items-center gap-2">
+                          <span className="text-4xl">{PRODUCT_ICONS[type] ?? "🔧"}</span>
+                          <span className="font-semibold text-sm text-center">{type}</span>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Paso 2: Tipo de problema */}
+            {!loading && !error && step === 2 && (
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">¿Qué tipo de problema tienes?</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {["Hardware", "Software"].map((type) => (
+                  {(["Hardware", "Software"] as const).map((kind) => (
                     <Card
-                      key={type}
+                      key={kind}
                       className={cn(
                         "cursor-pointer transition-all hover:scale-105 hover:border-accent/50",
-                        issueType === type && "border-accent bg-accent/5"
+                        issueKind === kind && "border-accent bg-accent/5"
                       )}
                       onClick={() => {
-                        setIssueType(type as IssueType);
-                        if (type === "Software") {
-                          setStep(6); // Software message step
-                        } else {
-                          setStep(3);
-                        }
+                        setIssueKind(kind);
+                        setStep(kind === "Software" ? 99 : 3);
                       }}
                     >
                       <CardContent className="pt-6 pb-6 text-center">
-                        <span className="font-semibold text-lg">{type}</span>
+                        <span className="font-semibold text-lg">{kind}</span>
                         <p className="text-sm text-muted-foreground mt-2">
-                          {type === "Hardware" ? "Problemas físicos o componentes" : "Problemas de sistema operativo"}
+                          {kind === "Hardware"
+                            ? "Problemas físicos o de componentes"
+                            : "Problemas de sistema operativo"}
                         </p>
                       </CardContent>
                     </Card>
@@ -178,8 +201,8 @@ export function ServiceEstimator() {
               </div>
             )}
 
-            {/* Step 6: Software Message */}
-            {step === 6 && issueType === "Software" && (
+            {/* Software: derivar a asesor */}
+            {!loading && !error && step === 99 && issueKind === "Software" && (
               <div className="space-y-6 text-center">
                 <div className="bg-accent/10 border border-accent/20 rounded-lg p-6">
                   <p className="text-lg mb-4">
@@ -188,135 +211,127 @@ export function ServiceEstimator() {
                   <Button
                     size="lg"
                     className="bg-accent text-accent-foreground"
-                    onClick={() => window.open('https://wa.me/573002345678?text=Hola, necesito ayuda con un problema de software', '_blank')}
+                    onClick={() =>
+                      window.open(
+                        "https://wa.me/573002345678?text=Hola,%20necesito%20ayuda%20con%20un%20problema%20de%20software",
+                        "_blank"
+                      )
+                    }
                   >
                     <MessageCircle className="h-5 w-5 mr-2" />
                     Hablar por WhatsApp
                   </Button>
                 </div>
-                <Button variant="outline" onClick={resetEstimator}>
+                <Button variant="outline" onClick={reset}>
                   Reiniciar estimación
                 </Button>
               </div>
             )}
 
-            {/* Step 3: Component Selection */}
-            {step === 3 && issueType === "Hardware" && (
+            {/* Paso 3: Categoría de componente */}
+            {!loading && !error && step === 3 && issueKind === "Hardware" && (
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">¿Qué componente está afectado?</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {["Screen", "Keyboard", "Battery", "Sound", "Charging Port", "Other"].map((comp) => (
-                    <Card
-                      key={comp}
-                      className={cn(
-                        "cursor-pointer transition-all hover:scale-105 hover:border-accent/50",
-                        component === comp && "border-accent bg-accent/5"
-                      )}
-                      onClick={() => {
-                        setComponent(comp as ComponentType);
-                        setStep(4);
-                      }}
-                    >
-                      <CardContent className="pt-4 pb-4 text-center">
-                        <span className="font-medium text-sm">{comp === "Charging Port" ? "Puerto de Carga" : comp === "Screen" ? "Pantalla" : comp === "Keyboard" ? "Teclado" : comp === "Battery" ? "Batería" : comp === "Sound" ? "Sonido" : "Otro"}</span>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Step 4: Common Issues */}
-            {step === 4 && component && (
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">¿Cuál es el problema específico?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Esta selección nos ayuda a entender mejor tu caso, pero no afecta el precio estimado
-                </p>
-                <div className="grid grid-cols-1 gap-3">
-                  {(commonIssues[component] || commonIssues.default).map((issue) => (
-                    <Card
-                      key={issue}
-                      className={cn(
-                        "cursor-pointer transition-all hover:border-accent/50",
-                        selectedIssue === issue && "border-accent bg-accent/5"
-                      )}
-                      onClick={() => {
-                        setSelectedIssue(issue);
-                        setStep(5);
-                      }}
-                    >
-                      <CardContent className="py-4">
-                        <span className="text-sm">{issue}</span>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Step 5: Estimate Display */}
-            {step === 5 && (() => {
-              const estimate = getEstimate();
-              return estimate ? (
-                <div className="space-y-6">
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-2">Costo Estimado</h3>
-                    <Badge variant="secondary" className="mb-4">
-                      Promoción del mes: descuento en mano de obra
-                    </Badge>
+                {availableCategories.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">
+                    No hay categorías disponibles para este dispositivo.
+                  </p>
+                ) : (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {availableCategories.map((cat) => (
+                      <Card
+                        key={cat}
+                        className={cn(
+                          "cursor-pointer transition-all hover:scale-105 hover:border-accent/50",
+                          selectedCategory === cat && "border-accent bg-accent/5"
+                        )}
+                        onClick={() => {
+                          setSelectedCategory(cat);
+                          setStep(4);
+                        }}
+                      >
+                        <CardContent className="pt-4 pb-4 text-center">
+                          <span className="font-medium text-sm">{cat}</span>
+                        </CardContent>
+                      </Card>
+                    ))}
                   </div>
+                )}
+              </div>
+            )}
 
-                  <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Costo de repuesto:</span>
-                      <span className="font-semibold text-lg">${estimate.partCost} USD</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Mano de obra:</span>
-                      <span className="font-semibold text-lg">${estimate.laborCost} USD</span>
-                    </div>
-                    <div className="border-t border-accent/20 pt-3 mt-3">
-                      <div className="flex justify-between items-center">
-                        <span className="font-bold text-xl">Total estimado:</span>
-                        <span className="font-bold text-2xl text-accent">${estimate.total} USD</span>
+            {/* Paso 4: Resultados del Excel */}
+            {!loading && !error && step === 4 && selectedType && selectedCategory && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold mb-1">Precios de referencia</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {selectedType} · {selectedCategory}
+                  </p>
+                </div>
+
+                {resultItems.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">
+                    No se encontraron piezas para esta combinación.
+                  </p>
+                ) : (
+                  <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
+                    {resultItems.map((item, idx) => (
+                      <div
+                        key={`${item.numeroPieza}-${idx}`}
+                        className="flex justify-between items-start gap-4 bg-muted/30 rounded-lg px-4 py-3"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium leading-tight truncate">
+                            {item.descripcionPieza || item.producto}
+                          </p>
+                          {item.numeroPieza && (
+                            <p className="text-xs text-muted-foreground mt-0.5">
+                              #{item.numeroPieza}
+                            </p>
+                          )}
+                        </div>
+                        <span className="text-sm font-bold text-accent whitespace-nowrap">
+                          {item.precioFormateado}
+                        </span>
                       </div>
-                    </div>
+                    ))}
                   </div>
+                )}
 
-                  <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
-                    <p className="leading-relaxed">
-                      Este valor es un estimado promedio. El costo final puede variar según diagnóstico técnico, estado del equipo y validaciones del fabricante. La cotización final se entrega después de la revisión física del dispositivo.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button
-                      size="lg"
-                      className="flex-1 bg-accent text-accent-foreground"
-                      onClick={openWhatsApp}
-                    >
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      Cotizar por WhatsApp
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="flex-1"
-                      onClick={() => window.open('https://wa.me/573002345678', '_blank')}
-                    >
-                      Hablar con un asesor
-                    </Button>
-                  </div>
-
-                  <div className="text-center">
-                    <Button variant="ghost" size="sm" onClick={resetEstimator}>
-                      Hacer una nueva estimación
-                    </Button>
-                  </div>
+                <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
+                  Precios de referencia por pieza (sin mano de obra). El costo final
+                  puede variar según diagnóstico técnico y estado del equipo.
                 </div>
-              ) : null;
-            })()}
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    size="lg"
+                    className="flex-1 bg-accent text-accent-foreground"
+                    onClick={openWhatsApp}
+                  >
+                    <MessageCircle className="h-5 w-5 mr-2" />
+                    Cotizar por WhatsApp
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() =>
+                      window.open("https://wa.me/573002345678", "_blank")
+                    }
+                  >
+                    Hablar con un asesor
+                  </Button>
+                </div>
+
+                <div className="text-center">
+                  <Button variant="ghost" size="sm" onClick={reset}>
+                    Hacer una nueva estimación
+                  </Button>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

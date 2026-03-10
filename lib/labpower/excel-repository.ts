@@ -29,14 +29,15 @@ const EXCEL_URL = process.env.LABPOWER_EXCEL_URL ?? "";
 
 /**
  * Mapeo de encabezados del Excel → claves internas.
- * Si el Excel tiene nombres de columna distintos, ajusta aquí.
+ * Las claves deben coincidir EXACTAMENTE con los encabezados de la fila 2 del archivo.
+ * El archivo tiene una fila de título en la fila 1 que se omite al parsear.
  */
 const COLUMN_MAP: Record<string, keyof RawLabPowerRow> = {
-  "Nombre del Producto":    "nombreProducto",
-  "Descripción de la Pieza":"descripcionPieza",
-  "Número de Pieza":        "numeroPieza",
-  "Pieza Secundaria":       "piezaSecundaria",
-  "Precio de Intercambio":  "precioIntercambio",
+  "Nombre del producto":     "nombreProducto",
+  "Descripción de la pieza": "descripcionPieza",
+  "Número de pieza":         "numeroPieza",
+  "Pieza secundaria":        "piezaSecundaria",
+  "Precio de intercambio":   "precioIntercambio",
 };
 
 function mapRawRow(row: Record<string, unknown>): RawLabPowerRow {
@@ -78,9 +79,36 @@ export async function fetchLabPowerItems(): Promise<LabPowerItem[]> {
   const sheetName = workbook.SheetNames[0];
   const sheet     = workbook.Sheets[sheetName];
 
-  const rawRows = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, {
-    defval: "", // valor por defecto para celdas vacías
+  // El archivo tiene una fila de título en la fila 1 (e.g. "Precios para página WEB").
+  // Los encabezados reales están en la fila 2. Leemos todo como arrays y
+  // construimos los objetos manualmente usando la fila 1 (índice 1) como cabecera.
+  const allRows = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
+    header: 1,
+    defval: "",
   });
+
+  // Buscar la fila que contiene los encabezados reales (la que tiene "Nombre del producto")
+  const headerRowIndex = allRows.findIndex(
+    (row) => Array.isArray(row) && String(row[0]).trim() === "Nombre del producto"
+  );
+
+  if (headerRowIndex === -1) {
+    console.warn("[LabPower] No se encontró la fila de encabezados en el Excel.");
+    return [];
+  }
+
+  const headers = (allRows[headerRowIndex] as unknown[]).map((h) => String(h).trim());
+  const dataRows = allRows.slice(headerRowIndex + 1) as unknown[][];
+
+  const rawRows = dataRows
+    .filter((row) => Array.isArray(row) && row.some((cell) => cell !== ""))
+    .map((row) => {
+      const obj: Record<string, unknown> = {};
+      headers.forEach((header, i) => {
+        obj[header] = row[i] ?? "";
+      });
+      return obj;
+    });
 
   const mappedRows = rawRows.map(mapRawRow);
   return normalizeRows(mappedRows);
