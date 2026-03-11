@@ -114,6 +114,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        {/* ContentSquare / Hotjar */}
+        <script src="https://t.contentsquare.net/uxa/1a3415ef76f8a.js" async />
+        {/* End ContentSquare / Hotjar */}
       </head>
       <body className={`${lato.className} antialiased`}>
         {/* Google Tag Manager (noscript) */}
