@@ -4,6 +4,7 @@ import { Lato } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageIntro } from "@/components/layout/page-intro"
+import { Analytics } from "@vercel/analytics/next"
 
 const lato = Lato({ 
   subsets: ["latin"],
@@ -135,6 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           {children}
           <CookieConsent />
           <WatiWidget />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

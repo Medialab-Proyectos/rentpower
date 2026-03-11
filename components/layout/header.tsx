@@ -231,7 +231,6 @@ export function Header() {
               className="w-80 bg-background border-border"
             >
               <div className="flex flex-col gap-4 pt-8">
-                <SearchBar variant="full" />
                 <nav className="flex flex-col gap-2">
                   {navigation.map((item) => (
                     <div key={item.name}>
@@ -300,6 +299,17 @@ export function Header() {
                     </div>
                   ))}
                 </nav>
+
+                <div className="border-t border-border pt-4 flex flex-col gap-3">
+                  <SearchBar variant="full" />
+                  <Button
+                    asChild
+                    className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <Link href="/contacto-empresas">Contáctanos</Link>
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
