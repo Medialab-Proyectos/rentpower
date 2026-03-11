@@ -5,6 +5,7 @@ import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageIntro } from "@/components/layout/page-intro"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const lato = Lato({ 
   subsets: ["latin"],
@@ -137,6 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <CookieConsent />
           <WatiWidget />
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
