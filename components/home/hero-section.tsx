@@ -44,6 +44,16 @@ const slides = [
     subtitle: "Diseñamos y operamos infraestructura IT robusta, servicios de ciberseguridad y ciberrecuperación con monitoreo 24/7 para proteger tu operación frente a fallos, ataques y escenarios críticos.",
     cta: { primary: "Explorar Valor IT", primaryHref: "/portafolio/valor-it", secondary: "Solicitar asesoría", secondaryHref: "#contacto" },
   },
+  {
+    id: 6,
+    image: "/images/bannerakira.png",
+    imageOnly: true,
+  },
+  {
+    id: 7,
+    image: "/images/bannergamer.png",
+    imageOnly: true,
+  },
 ];
 
 export function HeroSection() {
@@ -98,7 +108,7 @@ export function HeroSection() {
           >
             <Image
               src={slide.image}
-              alt={slide.title}
+              alt={slide.title ?? "Banner"}
               fill
               className="object-cover object-center"
               priority={index === 0}
@@ -107,99 +117,108 @@ export function HeroSection() {
         ))}
       </div>
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-      
+      {/* Dark overlay for text readability — hidden on image-only slides */}
+      {!slides[currentSlide].imageOnly && (
+        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+      )}
+
       <div className="relative mx-auto max-w-7xl px-4 py-12 lg:px-6 lg:py-20 z-10 w-full">
         <div className="max-w-2xl">
           {/* Content */}
           <div className="relative z-20 flex flex-col items-start">
-            <div className="relative min-h-[280px] md:min-h-[240px]">
-              {slides.map((slide, index) => (
-                <div
-                  key={slide.id}
-                  className={cn(
-                    "transition-all duration-500",
-                    index === currentSlide
-                      ? "opacity-100 relative z-10"
-                      : "opacity-0 absolute inset-0 z-0 invisible"
-                  )}
-                >
-                  <h1 className="mb-4 text-3xl font-bold leading-tight text-white drop-shadow-2xl md:text-4xl lg:text-5xl text-balance text-left">
-                    {slide.title}
-                  </h1>
-                  <p className="mb-4 text-lg text-gray-200 text-pretty leading-relaxed text-left">
-                    {slide.subtitle}
-                  </p>
-                  {slide.description && (
-                    <p className="mb-8 text-base text-gray-300 text-pretty leading-relaxed text-left">
-                      {slide.description}
-                    </p>
-                  )}
-                  {!slide.description && <div className="mb-8" />}
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs - Outside the transition container for proper interactivity */}
-            <div className="flex flex-wrap gap-4 relative z-30">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 transition-all duration-300"
-                asChild
-              >
-                <Link href={slides[currentSlide].cta.primaryHref || "#"}>
-                  {slides[currentSlide].cta.primary}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              {slides[currentSlide].cta.secondary && slides[currentSlide].cta.secondaryHref && (
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-white/40 text-white bg-white/10 hover:bg-white/20 hover:border-white/60"
-                  asChild
-                >
-                  <Link href={slides[currentSlide].cta.secondaryHref}>{slides[currentSlide].cta.secondary}</Link>
-                </Button>
-              )}
-            </div>
-
-            {/* Slide indicators */}
-            <div className="mt-8 flex items-center gap-4 relative z-40">
-              <div className="flex gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={cn(
-                      "h-2 rounded-full transition-all relative z-40 cursor-pointer",
-                      index === currentSlide
-                        ? "w-8 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]"
-                        : "w-2 bg-white/50 hover:bg-white/70"
-                    )}
-                    aria-label={`Ir a slide ${index + 1}`}
-                  />
+            {!slides[currentSlide].imageOnly && (
+              <div className="relative min-h-[280px] md:min-h-[240px]">
+                {slides.map((slide, index) => (
+                  !slide.imageOnly && (
+                    <div
+                      key={slide.id}
+                      className={cn(
+                        "transition-all duration-500",
+                        index === currentSlide
+                          ? "opacity-100 relative z-10"
+                          : "opacity-0 absolute inset-0 z-0 invisible"
+                      )}
+                    >
+                      <h1 className="mb-4 text-3xl font-bold leading-tight text-white drop-shadow-2xl md:text-4xl lg:text-5xl text-balance text-left">
+                        {slide.title}
+                      </h1>
+                      <p className="mb-4 text-lg text-gray-200 text-pretty leading-relaxed text-left">
+                        {slide.subtitle}
+                      </p>
+                      {slide.description && (
+                        <p className="mb-8 text-base text-gray-300 text-pretty leading-relaxed text-left">
+                          {slide.description}
+                        </p>
+                      )}
+                      {!slide.description && <div className="mb-8" />}
+                    </div>
+                  )
                 ))}
               </div>
-              <div className="flex gap-1 relative z-40">
-                <button
-                  onClick={prevSlide}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
-                  aria-label="Slide anterior"
+            )}
+
+            {/* CTAs - Outside the transition container for proper interactivity */}
+            {!slides[currentSlide].imageOnly && slides[currentSlide].cta && (
+              <div className="flex flex-wrap gap-4 relative z-30">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 transition-all duration-300"
+                  asChild
                 >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer relative z-40"
-                  aria-label="Siguiente slide"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+                  <Link href={slides[currentSlide].cta!.primaryHref || "#"}>
+                    {slides[currentSlide].cta!.primary}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                {slides[currentSlide].cta!.secondary && slides[currentSlide].cta!.secondaryHref && (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/40 text-white bg-white/10 hover:bg-white/20 hover:border-white/60"
+                    asChild
+                  >
+                    <Link href={slides[currentSlide].cta!.secondaryHref!}>{slides[currentSlide].cta!.secondary}</Link>
+                  </Button>
+                )}
               </div>
-            </div>
+            )}
+
           </div>
+        </div>
+      </div>
+
+      {/* Slide indicators — siempre al fondo izquierdo del hero */}
+      <div className="absolute bottom-10 left-8 lg:left-14 z-40 flex items-center gap-4">
+        <div className="flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={cn(
+                "h-2 rounded-full transition-all cursor-pointer",
+                index === currentSlide
+                  ? "w-8 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]"
+                  : "w-2 bg-white/50 hover:bg-white/70"
+              )}
+              aria-label={`Ir a slide ${index + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-1">
+          <button
+            onClick={prevSlide}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer"
+            aria-label="Slide anterior"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white backdrop-blur-sm transition-all hover:border-green-400/40 hover:bg-green-500/20 cursor-pointer"
+            aria-label="Siguiente slide"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </section>
