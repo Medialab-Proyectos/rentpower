@@ -9,15 +9,16 @@ import { CTABanner } from "@/components/portafolio/shared/cta-banner";
 import { ServiceStructuredData, FAQStructuredData } from "@/components/seo-structured-data";
 import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { ImageHighlight } from "@/components/portafolio/shared/image-highlight";
-import { 
-  Server, 
-  ShieldCheck, 
-  Lock, 
-  Activity, 
-  Scan, 
-  Eye, 
-  Zap, 
-  RotateCcw 
+import { AlkiraSection } from "@/components/portafolio/alkira-section";
+import {
+  Server,
+  ShieldCheck,
+  Lock,
+  Activity,
+  Scan,
+  Eye,
+  Zap,
+  RotateCcw
 } from "lucide-react";
 
 import { Metadata } from 'next';
@@ -161,13 +162,15 @@ export default function ValorITPage() {
         backgroundImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner-principal-1500x600px%20%282%29-PTNxcg0iJMDnyPpMaPDJiGoNmcMR1F.png"
       />
       
-      <FlipCardGrid 
+      <FlipCardGrid
         title="Nuestras Soluciones IT Explicadas"
         subtitle="Click en cada tarjeta para entender cómo estas tecnologías protegen tu negocio"
-        features={itSolutionsExplained} 
-        columns={4} 
+        features={itSolutionsExplained}
+        columns={4}
       />
-      
+
+      <AlkiraSection />
+
       <Stepper 
         title="Estrategia de Ciberseguridad (NIST)" 
         steps={nistSteps} 

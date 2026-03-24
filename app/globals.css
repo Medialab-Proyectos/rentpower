@@ -164,6 +164,20 @@
   animation: pulse-slow 6s ease-in-out infinite;
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Business Unit Colors */
 :root {
   /* DaaS Unit - Warm Amber/Orange tones */
