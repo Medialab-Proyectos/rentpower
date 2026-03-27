@@ -1,13 +1,139 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, CheckCircle, Wrench, GraduationCap, Users, Briefcase, Award, Star, Package, BadgeCheck, Cpu, ClipboardCheck, Settings2, UserCheck, Microscope, Zap, Monitor, BookOpen, Presentation, Smartphone, Battery, Camera, Code2, HeadphonesIcon, Activity } from "lucide-react";
+import { Shield, CheckCircle, Wrench, GraduationCap, Users, Briefcase, Award, Star, Package, BadgeCheck, Cpu, ClipboardCheck, Settings2, UserCheck, Microscope, Zap, Monitor, BookOpen, Presentation, Smartphone, Battery, Camera, Code2, HeadphonesIcon, Activity, CalendarDays, ArrowRight } from "lucide-react";
 
 export function ServicesContent() {
   return (
     <div className="py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         
+        {/* CTAs: Reservar Cita y Estado de la garantía */}
+        <div className="grid md:grid-cols-2 gap-6 mb-20">
+          {/* Reservar Cita */}
+          <div className="relative group overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-8 transition-all duration-300 hover:border-[#00ffe3]/40 hover:shadow-[0_0_30px_rgba(0,255,227,0.08)] flex flex-col">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00ffe3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00ffe3]/20 to-[#00a6d6]/10 flex items-center justify-center flex-shrink-0">
+                <CalendarDays className="h-6 w-6 text-[#00ffe3]" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground">Reservar Cita</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
+              Agenda una visita con nuestro equipo de técnicos certificados Apple para diagnóstico o reparación de tu dispositivo.
+            </p>
+            <div>
+              <Button
+                asChild
+                className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"
+              >
+                <Link href="/contacto-empresas">
+                  Más información
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Estado de la garantía */}
+          <div className="relative group overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-8 transition-all duration-300 hover:border-[#00ffe3]/40 hover:shadow-[0_0_30px_rgba(0,255,227,0.08)] flex flex-col">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00ffe3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00ffe3]/20 to-[#00a6d6]/10 flex items-center justify-center flex-shrink-0">
+                <Activity className="h-6 w-6 text-[#00ffe3]" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground">Estado de la garantía</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
+              Consulta en tiempo real el estado de la garantía de tu dispositivo Apple y el seguimiento de tu orden de servicio.
+            </p>
+            <div>
+              <Button
+                asChild
+                className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"
+              >
+                <Link href="/labpower/herramientas">
+                  Más información
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Centro de Servicio Autorizado */}
+        <section className="mb-20">
+          <div className="text-center mb-10">
+            <Badge className="mb-4 px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">
+              AASP — Apple Authorized Service Provider
+            </Badge>
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+              Centro de Servicio Autorizado Apple
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-3">
+              Diagnóstico y reparación certificada de dispositivos Apple bajo estándares oficiales. Procesos seguros, trazables y confiables desde la recepción hasta la entrega.
+            </p>
+            <p className="text-sm text-muted-foreground/70 max-w-2xl mx-auto">
+              Repuestos originales · Herramientas oficiales · Técnicos certificados por Apple
+            </p>
+          </div>
+
+          {/* Microinteracción: Timeline vertical con step-reveal */}
+          <div className="rounded-2xl border border-[#00ffe3]/20 bg-card/80 p-8">
+            <p className="text-sm font-semibold text-[#00ffe3] uppercase tracking-widest mb-8">Servicios de reparación</p>
+            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-0">
+              {[
+                { icon: Microscope,       label: "Diagnóstico técnico",           desc: "iPhone, iPad, Mac, Apple Watch y AirPods" },
+                { icon: CheckCircle,      label: "Reparaciones en garantía",       desc: "Cobertura oficial Apple sin costo adicional" },
+                { icon: Wrench,           label: "Reparaciones fuera de garantía", desc: "Soluciones certificadas con presupuesto previo" },
+                { icon: Battery,          label: "Cambio de batería y pantalla",   desc: "Componentes originales con garantía de instalación" },
+                { icon: Camera,           label: "Componentes internos",           desc: "Cámaras, puertos y partes internas certificadas" },
+                { icon: Code2,            label: "Software y actualizaciones",     desc: "Soporte, restauración y actualización de sistema" },
+                { icon: HeadphonesIcon,   label: "Asesoría técnica previa",        desc: "Revisión inicial sin compromiso para evaluar el equipo" }
+              ].map(({ icon: Icon, label, desc }, i) => (
+                <div
+                  key={i}
+                  className="group relative flex gap-4 py-4 border-b border-border/20 last:border-0 transition-all duration-200"
+                >
+                  <div className="relative flex flex-col items-center">
+                    <div className="w-8 h-8 rounded-xl bg-[#00ffe3]/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#00ffe3]/25 group-hover:scale-110">
+                      <Icon className="h-4 w-4 text-[#00ffe3]" />
+                    </div>
+                  </div>
+                  <div className="flex-1 pt-0.5">
+                    <p className="font-semibold text-foreground text-sm mb-0.5 transition-colors duration-200 group-hover:text-[#00ffe3]">{label}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                  </div>
+                  <span className="self-center opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0 text-[#00ffe3] text-xs font-bold">→</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Button
+                  disabled
+                  aria-disabled="true"
+                  className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none"
+                >
+                  Agendar diagnóstico
+                </Button>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 uppercase tracking-widest whitespace-nowrap">
+                  Próximamente
+                </span>
+              </div>
+              <Button
+                disabled
+                aria-disabled="true"
+                variant="outline"
+                className="border-border/30 text-muted-foreground/40 font-semibold cursor-not-allowed pointer-events-none"
+              >
+                Ver precios de reparación
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* Garantías Extendidas */}
         <section className="mb-20">
           <div className="text-center mb-10">
@@ -501,80 +627,6 @@ export function ServicesContent() {
                 </div>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Centro de Servicio Autorizado */}
-        <section className="mb-20">
-          <div className="text-center mb-10">
-            <Badge className="mb-4 px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">
-              AASP — Apple Authorized Service Provider
-            </Badge>
-            <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-              Centro de Servicio Autorizado Apple
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-3">
-              Diagnóstico y reparación certificada de dispositivos Apple bajo estándares oficiales. Procesos seguros, trazables y confiables desde la recepción hasta la entrega.
-            </p>
-            <p className="text-sm text-muted-foreground/70 max-w-2xl mx-auto">
-              Repuestos originales · Herramientas oficiales · Técnicos certificados por Apple
-            </p>
-          </div>
-
-          {/* Microinteracción: Timeline vertical con step-reveal */}
-          <div className="rounded-2xl border border-[#00ffe3]/20 bg-card/80 p-8">
-            <p className="text-sm font-semibold text-[#00ffe3] uppercase tracking-widest mb-8">Servicios de reparación</p>
-            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-0">
-              {[
-                { icon: Microscope,       label: "Diagnóstico técnico",          desc: "iPhone, iPad, Mac, Apple Watch y AirPods" },
-                { icon: CheckCircle,      label: "Reparaciones en garantía",      desc: "Cobertura oficial Apple sin costo adicional" },
-                { icon: Wrench,           label: "Reparaciones fuera de garantía",desc: "Soluciones certificadas con presupuesto previo" },
-                { icon: Battery,          label: "Cambio de batería y pantalla",  desc: "Componentes originales con garantía de instalación" },
-                { icon: Camera,           label: "Componentes internos",          desc: "Cámaras, puertos y partes internas certificadas" },
-                { icon: Code2,            label: "Software y actualizaciones",    desc: "Soporte, restauración y actualización de sistema" },
-                { icon: HeadphonesIcon,   label: "Asesoría técnica previa",       desc: "Revisión inicial sin compromiso para evaluar el equipo" }
-              ].map(({ icon: Icon, label, desc }, i) => (
-                <div
-                  key={i}
-                  className="group relative flex gap-4 py-4 border-b border-border/20 last:border-0 transition-all duration-200"
-                >
-                  {/* Animated left line indicator */}
-                  <div className="relative flex flex-col items-center">
-                    <div className="w-8 h-8 rounded-xl bg-[#00ffe3]/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#00ffe3]/25 group-hover:scale-110">
-                      <Icon className="h-4 w-4 text-[#00ffe3]" />
-                    </div>
-                  </div>
-                  <div className="flex-1 pt-0.5">
-                    <p className="font-semibold text-foreground text-sm mb-0.5 transition-colors duration-200 group-hover:text-[#00ffe3]">{label}</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                  </div>
-                  {/* Hover indicator arrow */}
-                  <span className="self-center opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0 text-[#00ffe3] text-xs font-bold">→</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
-              <div className="flex items-center gap-2">
-                <Button
-                  disabled
-                  aria-disabled="true"
-                  className="bg-gradient-to-r from-[#00ffe3]/30 to-[#00a6d6]/30 text-foreground/30 font-bold cursor-not-allowed pointer-events-none"
-                >
-                  Agendar diagnóstico
-                </Button>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25 uppercase tracking-widest whitespace-nowrap">
-                  Próximamente
-                </span>
-              </div>
-              <Button
-                disabled
-                aria-disabled="true"
-                variant="outline"
-                className="border-border/30 text-muted-foreground/40 font-semibold cursor-not-allowed pointer-events-none"
-              >
-                Ver precios de reparación
-              </Button>
-            </div>
           </div>
         </section>
 

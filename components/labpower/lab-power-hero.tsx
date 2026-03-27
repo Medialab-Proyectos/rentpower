@@ -23,7 +23,7 @@ export function LabPowerHero() {
                 LabPower
               </span>
               <br />
-              Servicio técnico especializado
+              Servicio especializado para empresas
             </h1>
             <p className="text-xl sm:text-2xl leading-relaxed text-white/90 text-pretty text-left">
               Diagnóstico, reparación y seguimiento de tu equipo con respaldo experto.
