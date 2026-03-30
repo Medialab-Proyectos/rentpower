@@ -75,7 +75,10 @@ export function Header() {
     return pathname.startsWith(href);
   };
 
-  const isLanding = pathname === "/portafolio/daas/landing";
+  const isLanding =
+    pathname === "/portafolio/daas/landing" ||
+    pathname === "/labpower/landing" ||
+    pathname === "/portafolio/valor-it-landing";
 
   const isParentActive = (item: any) => {
     if (item.name === "Portafolio") return pathname.startsWith("/portafolio");
@@ -218,10 +221,8 @@ export function Header() {
             asChild
             size="sm"
             className={cn(
-              "font-bold border-0 shadow-lg transition-all duration-300",
-              isLanding
-                ? "flex bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-black"
-                : "hidden lg:flex bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black"
+              "font-bold border-0 shadow-lg transition-all duration-300 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black",
+              isLanding ? "flex" : "hidden lg:flex"
             )}
           >
             <Link href="/contacto-empresas">Contáctanos</Link>
