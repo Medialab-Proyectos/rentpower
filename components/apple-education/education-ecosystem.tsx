@@ -36,8 +36,8 @@ export function EducationEcosystem() {
           {features.map((feature, i) => (
             <Card key={i} className="p-8 bg-card border-border">
               <feature.icon className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground">{feature.description}</p>
             </Card>
           ))}
         </div>

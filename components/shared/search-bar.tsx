@@ -16,8 +16,8 @@ interface SearchBarProps {
 }
 
 const categories = [
-  { name: "MacBook Air", icon: Laptop, query: "macbook-air", type: "product_line" },
-  { name: "MacBook Pro", icon: Laptop, query: "macbook-pro", type: "product_line" },
+  { name: "MacBook Air", icon: Laptop, query: "macbook air", type: "product_line" },
+  { name: "MacBook Pro", icon: Laptop, query: "macbook pro", type: "product_line" },
   { name: "iMac", icon: Monitor, query: "imac", type: "product_line" },
   { name: "Mac mini", icon: Monitor, query: "mac-mini", type: "product_line" },
 ];

@@ -131,10 +131,10 @@ export function SolutionsSection() {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="group/btn -ml-2 transition-colors duration-300" 
+                <Button
+                  variant="ghost"
+                  size="default"
+                  className="group/btn -ml-2 transition-colors duration-300"
                   asChild
                 >
                   <Link 

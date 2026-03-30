@@ -20,19 +20,17 @@ interface FlipCardGridProps {
   columns?: 2 | 3 | 4;
 }
 
-function FlipCard({ feature }: { feature: FlipCardFeature }) {
+function FlipCard({ feature, className }: { feature: FlipCardFeature; className?: string }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
+    <div
       className={cn(
-        "flip-card-wrapper cursor-pointer",
-        isFlipped && "is-flipped"
+        "flip-card-wrapper cursor-pointer h-[280px] md:h-[340px]",
+        isFlipped && "is-flipped",
+        className
       )}
-      style={{ 
-        perspective: '1000px',
-        height: '340px'
-      }}
+      style={{ perspective: '1000px' }}
       onClick={() => setIsFlipped(!isFlipped)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -79,7 +77,7 @@ function FlipCard({ feature }: { feature: FlipCardFeature }) {
               {feature.frontDescription}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm text-accent font-medium mt-4 group-hover:gap-3 transition-all">
+          <div className="flex items-center gap-2 text-base text-accent font-medium mt-4 group-hover:gap-3 transition-all">
             <span>Click para más detalles</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
               <path d="M5 12h14"/>
@@ -136,6 +134,9 @@ function FlipCard({ feature }: { feature: FlipCardFeature }) {
 }
 
 export function FlipCardGrid({ title, subtitle, features, columns = 4 }: FlipCardGridProps) {
+  // 5-card bento: row 1 → 3 equal cards, row 2 → 2 wider cards (perfectly centered)
+  const isBento = features.length === 5 && columns === 4;
+
   return (
     <section className="py-16 md:py-20 lg:py-24 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -153,16 +154,28 @@ export function FlipCardGrid({ title, subtitle, features, columns = 4 }: FlipCar
         )}
         <div className={cn(
           "grid gap-6 md:gap-8",
-          columns === 2 && "sm:grid-cols-2",
-          columns === 3 && "sm:grid-cols-2 lg:grid-cols-3",
-          columns === 4 && "sm:grid-cols-2 lg:grid-cols-4"
+          isBento
+            ? "grid-cols-6"
+            : cn(
+                columns === 2 && "sm:grid-cols-2",
+                columns === 3 && "sm:grid-cols-2 lg:grid-cols-3",
+                columns === 4 && "sm:grid-cols-2 lg:grid-cols-4"
+              )
         )}>
           {features.map((feature, index) => (
-            <FlipCard key={index} feature={feature} />
+            <FlipCard
+              key={index}
+              feature={feature}
+              className={isBento
+                ? index < 3
+                  ? "col-span-6 sm:col-span-3 lg:col-span-2"
+                  : "col-span-6 sm:col-span-3 lg:col-span-3"
+                : ""
+              }
+            />
           ))}
         </div>
       </div>
-
     </section>
   );
 }

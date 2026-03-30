@@ -120,7 +120,7 @@ export function LandingHero() {
 
             {/* Floating card - Glassmorphic with subtle animation */}
             <div
-              className="absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
+              className="hidden md:block absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
               style={{ animation: 'float-card 6s ease-in-out infinite' }}
             >
               <div className="flex items-center gap-3">
@@ -138,7 +138,7 @@ export function LandingHero() {
 
             {/* Floating card 2 - Glassmorphic with subtle animation */}
             <div
-              className="absolute -right-4 top-8 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
+              className="hidden md:block absolute -right-4 top-8 rounded-xl border border-white/10 bg-gray-900/80 dark:bg-gray-900/40 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-1"
               style={{ animation: 'float-card 6s ease-in-out infinite 1s' }}
             >
               <div className="flex items-center gap-3">

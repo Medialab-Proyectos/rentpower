@@ -90,7 +90,7 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
           {/* Image Gallery */}
           <div className="space-y-4">
             {/* Main Image */}
-            <div className="relative aspect-square bg-card rounded-2xl overflow-hidden border border-border group">
+            <div className="relative aspect-square bg-white rounded-2xl overflow-hidden border border-border group">
               <Image
                 src={images[selectedImage] || "/placeholder.svg"}
                 alt={product.name}
@@ -408,11 +408,6 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
               </div>
             </TabsContent>
           </Tabs>
-        </div>
-
-        {/* Promo Banner if applicable */}
-        <div className="mb-8">
-          <PromoApplicable product={product} />
         </div>
 
         {/* Merchandising Sections */}

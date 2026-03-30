@@ -18,7 +18,10 @@
       "Bash(xargs grep:*)",
       "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/components' -type f -name *valor-it* -o -name *flip-card* -o -name *stepper* -o -name *accordion*)",
       "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/public' -type f \\\\\\(-name *.svg -o -name *.png -o -name *.jpg \\\\\\))",
-      "Bash(pnpm tsc:*)"
+      "Bash(pnpm tsc:*)",
+      "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5' -path */.next -prune -o -type f -name *featured*catalog* -o -name *partners* -o -name *carousel*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm build:*)"
     ]
   }
 }

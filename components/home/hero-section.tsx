@@ -48,11 +48,14 @@ const slides = [
     id: 6,
     image: "/images/bannerakira.png",
     imageOnly: true,
+    objectFit: "contain" as const,
+    href: "/portafolio/valor-it",
   },
   {
     id: 7,
     image: "/images/bannergamer.png",
     imageOnly: true,
+    objectFit: "contain" as const,
   },
 ];
 
@@ -84,7 +87,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-black min-h-[600px] flex items-center">
+    <section className="relative overflow-hidden bg-black min-h-[420px] sm:min-h-[500px] md:min-h-[600px] flex items-center">
       {/* Teal Gradient Background Image */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -103,16 +106,29 @@ export function HeroSection() {
             key={slide.id}
             className={cn(
               "absolute inset-0 transition-opacity duration-700",
-              index === currentSlide ? "opacity-100" : "opacity-0"
+              index === currentSlide ? "opacity-100" : "opacity-0",
+              slide.href ? "pointer-events-auto cursor-pointer" : ""
             )}
           >
-            <Image
-              src={slide.image}
-              alt={slide.title ?? "Banner"}
-              fill
-              className="object-cover object-center"
-              priority={index === 0}
-            />
+            {slide.href ? (
+              <Link href={slide.href} className="absolute inset-0">
+                <Image
+                  src={slide.image}
+                  alt={slide.title ?? "Banner"}
+                  fill
+                  className={slide.objectFit === "contain" ? "object-contain" : "object-cover object-center"}
+                  priority={index === 0}
+                />
+              </Link>
+            ) : (
+              <Image
+                src={slide.image}
+                alt={slide.title ?? "Banner"}
+                fill
+                className={slide.objectFit === "contain" ? "object-contain" : "object-cover object-center"}
+                priority={index === 0}
+              />
+            )}
           </div>
         ))}
       </div>
@@ -127,7 +143,7 @@ export function HeroSection() {
           {/* Content */}
           <div className="relative z-20 flex flex-col items-start">
             {!slides[currentSlide].imageOnly && (
-              <div className="relative min-h-[280px] md:min-h-[240px]">
+              <div className="relative min-h-[260px] sm:min-h-[240px] md:min-h-[220px]">
                 {slides.map((slide, index) => (
                   !slide.imageOnly && (
                     <div
@@ -188,7 +204,7 @@ export function HeroSection() {
       </div>
 
       {/* Slide indicators — siempre al fondo izquierdo del hero */}
-      <div className="absolute bottom-10 left-8 lg:left-14 z-40 flex items-center gap-4">
+      <div className="absolute bottom-4 sm:bottom-10 left-4 sm:left-8 lg:left-14 z-40 flex items-center gap-4">
         <div className="flex gap-2">
           {slides.map((_, index) => (
             <button

@@ -14,7 +14,11 @@ import {
 } from "@/components/ui/select";
 import { CheckCircle } from "lucide-react";
 
-export function ContactFormSection() {
+interface ContactFormSectionProps {
+  submitButtonClassName?: string;
+}
+
+export function ContactFormSection({ submitButtonClassName }: ContactFormSectionProps = {}) {
   const [empresa, setEmpresa] = useState("");
   const [formData, setFormData] = useState({
     nombreCompleto: "",
@@ -345,7 +349,7 @@ export function ContactFormSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"
+                className={submitButtonClassName ?? "w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"}
                 disabled={status === "loading"}
               >
                 {status === "loading" ? "Enviando..." : "Enviar"}

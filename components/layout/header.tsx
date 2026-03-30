@@ -75,6 +75,8 @@ export function Header() {
     return pathname.startsWith(href);
   };
 
+  const isLanding = pathname === "/portafolio/daas/landing";
+
   const isParentActive = (item: any) => {
     if (item.name === "Portafolio") return pathname.startsWith("/portafolio");
     if (item.children) {
@@ -112,7 +114,7 @@ export function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        {!isLanding && <nav className="hidden items-center gap-1 lg:flex">
           {navigation.map((item) =>
             item.children ? (
               <DropdownMenu key={item.name}>
@@ -200,119 +202,127 @@ export function Header() {
               </Button>
             )
           )}
-        </nav>
+        </nav>}
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          <div className="hidden lg:block">
-            <SearchBar variant="compact" />
-          </div>
+          {!isLanding && (
+            <div className="hidden lg:block">
+              <SearchBar variant="compact" />
+            </div>
+          )}
 
-          <ThemeToggle />
+          {!isLanding && <ThemeToggle />}
 
           <Button
             asChild
             size="sm"
-            className="hidden lg:flex bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 shadow-lg transition-all duration-300"
+            className={cn(
+              "font-bold border-0 shadow-lg transition-all duration-300",
+              isLanding
+                ? "flex bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-black"
+                : "hidden lg:flex bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black"
+            )}
           >
             <Link href="/contacto-empresas">Contáctanos</Link>
           </Button>
 
-          {/* Mobile menu */}
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Abrir menú</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-80 bg-background border-border"
-            >
-              <div className="flex flex-col gap-4 pt-8">
-                <nav className="flex flex-col gap-2">
-                  {navigation.map((item) => (
-                    <div key={item.name}>
-                      {item.children ? (
-                        <>
-                          <div className="px-3 py-2 text-base font-medium text-foreground">
-                            {item.name}
-                          </div>
-                        <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border pl-4">
-                            {item.children.map((child: any) =>
-                              child.children ? (
-                                // Nested LabPower group
-                                <div key={child.name}>
-                                  <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-[#00ffe3] uppercase tracking-wider">
-                                    {child.icon && <child.icon className="h-3 w-3" />}
+          {/* Mobile menu — hidden on landing */}
+          {!isLanding && (
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Abrir menú</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="w-80 bg-background border-border"
+              >
+                <div className="flex flex-col gap-4 pt-8">
+                  <nav className="flex flex-col gap-2">
+                    {navigation.map((item) => (
+                      <div key={item.name}>
+                        {item.children ? (
+                          <>
+                            <div className="px-3 py-2 text-base font-medium text-foreground">
+                              {item.name}
+                            </div>
+                          <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border pl-4">
+                              {item.children.map((child: any) =>
+                                child.children ? (
+                                  <div key={child.name}>
+                                    <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-[#00ffe3] uppercase tracking-wider">
+                                      {child.icon && <child.icon className="h-3 w-3" />}
+                                      {child.name}
+                                    </div>
+                                    <div className="ml-3 flex flex-col gap-0.5 border-l border-border/50 pl-3">
+                                      {child.children.map((sub: any) => (
+                                        <Link
+                                          key={sub.name}
+                                          href={sub.href}
+                                          onClick={(e) => {
+                                            if (sub.disabled) e.preventDefault();
+                                            else setMobileOpen(false);
+                                          }}
+                                          className={cn(
+                                            "flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground",
+                                            sub.disabled && "opacity-50 cursor-not-allowed hover:bg-transparent hover:text-muted-foreground"
+                                          )}
+                                        >
+                                          {sub.icon && <sub.icon className="h-4 w-4 text-primary" />}
+                                          <span>{sub.name}</span>
+                                          {sub.badge && (
+                                            <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded-full">
+                                              {sub.badge}
+                                            </span>
+                                          )}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <Link
+                                    key={child.name}
+                                    href={child.href}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                  >
+                                    {child.icon && <child.icon className="h-4 w-4 text-primary" />}
                                     {child.name}
-                                  </div>
-                                  <div className="ml-3 flex flex-col gap-0.5 border-l border-border/50 pl-3">
-                                    {child.children.map((sub: any) => (
-                                      <Link
-                                        key={sub.name}
-                                        href={sub.href}
-                                        onClick={(e) => {
-                                          if (sub.disabled) e.preventDefault();
-                                          else setMobileOpen(false);
-                                        }}
-                                        className={cn(
-                                          "flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground",
-                                          sub.disabled && "opacity-50 cursor-not-allowed hover:bg-transparent hover:text-muted-foreground"
-                                        )}
-                                      >
-                                        {sub.icon && <sub.icon className="h-4 w-4 text-primary" />}
-                                        <span>{sub.name}</span>
-                                        {sub.badge && (
-                                          <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded-full">
-                                            {sub.badge}
-                                          </span>
-                                        )}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-                              ) : (
-                                <Link
-                                  key={child.name}
-                                  href={child.href}
-                                  onClick={() => setMobileOpen(false)}
-                                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
-                                >
-                                  {child.icon && <child.icon className="h-4 w-4 text-primary" />}
-                                  {child.name}
-                                </Link>
-                              )
-                            )}
-                          </div>
-                        </>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-secondary"
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </div>
-                  ))}
-                </nav>
+                                  </Link>
+                                )
+                              )}
+                            </div>
+                          </>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-secondary"
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </nav>
 
-                <div className="border-t border-border pt-4 flex flex-col gap-3">
-                  <SearchBar variant="full" />
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <Link href="/contacto-empresas">Contáctanos</Link>
-                  </Button>
+                  <div className="border-t border-border pt-4 flex flex-col gap-3">
+                    <SearchBar variant="full" />
+                    <Button
+                      asChild
+                      className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <Link href="/contacto-empresas">Contáctanos</Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>

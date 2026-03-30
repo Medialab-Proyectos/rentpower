@@ -61,7 +61,7 @@ export function AlkiraSection() {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Administración de nubes
+            Administración de Nubes.
           </p>
         </div>
 

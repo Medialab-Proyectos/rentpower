@@ -47,7 +47,7 @@ export function TeamSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
           {team.map((member, idx) => (
             <div key={idx} className="text-center group flex flex-col items-center">
               <div className="relative mx-auto mb-4 w-32 h-32 md:w-40 md:h-40">

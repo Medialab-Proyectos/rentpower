@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,10 +24,49 @@ const typeLabels = {
 
 export function EventsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const maxIndex = Math.max(0, events.length - 3);
+  const [itemsPerView, setItemsPerView] = useState(3);
+  const [translatePx, setTranslatePx] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const gap = 24; // gap-6 = 24px
+
+  const updateLayout = () => {
+    const w = window.innerWidth;
+    const newItems = w < 768 ? 1 : w < 1024 ? 2 : 3;
+    setItemsPerView(newItems);
+  };
+
+  useEffect(() => {
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, []);
+
+  const maxIndex = Math.max(0, events.length - itemsPerView);
+
+  // Clamp when itemsPerView changes
+  useEffect(() => {
+    setActiveIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
+
+  // Recalculate translate whenever activeIndex or container size changes
+  useEffect(() => {
+    if (!carouselRef.current) return;
+    const containerWidth = carouselRef.current.offsetWidth;
+    const cardWidth = (containerWidth - (itemsPerView - 1) * gap) / itemsPerView;
+    setTranslatePx(activeIndex * (cardWidth + gap));
+  }, [activeIndex, itemsPerView]);
 
   const next = () => setActiveIndex((prev) => Math.min(prev + 1, maxIndex));
   const prev = () => setActiveIndex((prev) => Math.max(prev - 1, 0));
+
+  // Card width based on items per view (for first render before ref is measured)
+  const cardWidthClass =
+    itemsPerView === 1
+      ? "w-full"
+      : itemsPerView === 2
+      ? "w-[calc(50%-12px)]"
+      : "w-[calc(33.333%-16px)]";
 
   return (
     <section className="bg-card py-20">
@@ -43,18 +82,21 @@ export function EventsSection() {
         </div>
 
         {/* Events carousel */}
-        <div className="relative">
-          <div className="overflow-hidden">
+        <div className="relative px-6">
+          <div className="overflow-hidden" ref={carouselRef}>
             <div
               className="flex gap-6 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${activeIndex * (100 / 3 + 2)}%)` }}
+              style={{ transform: `translateX(-${translatePx}px)` }}
             >
               {events.map((event) => {
                 const TypeIcon = typeIcons[event.type];
                 return (
                   <Card
                     key={event.id}
-                    className="w-full flex-shrink-0 overflow-hidden border-border/50 bg-secondary/30 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                    className={cn(
+                      "flex-shrink-0 overflow-hidden border-border/50 bg-secondary/30",
+                      cardWidthClass
+                    )}
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -64,7 +106,7 @@ export function EventsSection() {
                         className="object-cover"
                       />
                       <div className="absolute inset-0" />
-                      
+
                       {/* Date badge */}
                       <div className="absolute left-4 top-4 rounded-lg bg-background/90 px-3 py-2 text-center backdrop-blur">
                         <p className="text-2xl font-bold text-foreground">{event.day}</p>
@@ -86,11 +128,11 @@ export function EventsSection() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation arrows — positioned outside overflow-hidden, inside px-6 padding */}
           <button
             onClick={prev}
             disabled={activeIndex === 0}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
+            className="absolute left-0 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
             aria-label="Eventos anteriores"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -98,7 +140,7 @@ export function EventsSection() {
           <button
             onClick={next}
             disabled={activeIndex >= maxIndex}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
             aria-label="Siguientes eventos"
           >
             <ChevronRight className="h-5 w-5" />
