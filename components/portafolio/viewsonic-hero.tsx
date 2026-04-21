@@ -48,18 +48,18 @@ export function ViewSonicHero() {
           <div className="space-y-8">
 
 
-            {/* ── Dual brand logos — ViewSonic inline SVG + MacPower adaptive ── */}
-            <div className="flex items-center gap-4">
+            {/* ── Dual brand logos — ViewSonic PNG + MacPower adaptive ── */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               {/* ViewSonic logo image */}
               <Image
                 src="/files/ViewSonic_logo.png"
                 alt="ViewSonic"
                 width={180}
                 height={50}
-                className="h-9 w-auto object-contain"
+                className="h-6 sm:h-7 md:h-9 w-auto object-contain shrink-0 max-w-[120px] sm:max-w-[180px]"
               />
 
-              <span className="h-8 w-px bg-foreground/15" />
+              <span className="h-6 sm:h-8 w-px bg-foreground/15" />
 
               {/* MacPower: color en light, blanco en dark */}
               <Image
@@ -67,14 +67,14 @@ export function ViewSonicHero() {
                 alt="MacPower IT Solutions"
                 width={130}
                 height={30}
-                className="h-7 w-auto object-contain opacity-80 dark:hidden"
+                className="h-5 sm:h-6 md:h-7 w-auto object-contain opacity-80 shrink-0 max-w-[100px] sm:max-w-[130px] dark:hidden"
               />
               <Image
                 src="/images/macpower-logo-white.png"
                 alt="MacPower IT Solutions"
                 width={130}
                 height={30}
-                className="hidden h-7 w-auto object-contain opacity-80 dark:block"
+                className="hidden h-5 sm:h-6 md:h-7 w-auto object-contain opacity-80 shrink-0 max-w-[100px] sm:max-w-[130px] dark:block"
               />
             </div>
 
@@ -107,15 +107,15 @@ export function ViewSonicHero() {
             </ul>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
               <Button
                 asChild
                 size="lg"
-                className="group rounded-full bg-gradient-to-r from-[#CD2027] to-[#e85960] px-8 font-bold text-white shadow-lg shadow-[#CD2027]/30 transition-all hover:from-[#b01a20] hover:to-[#CD2027] hover:scale-[1.04] hover:shadow-xl hover:shadow-[#CD2027]/40 active:scale-95"
+                className="group w-full sm:w-auto h-auto py-3.5 md:py-4 rounded-full bg-gradient-to-r from-[#CD2027] to-[#e85960] px-6 md:px-8 text-sm md:text-base font-bold text-white shadow-lg shadow-[#CD2027]/30 transition-all hover:from-[#b01a20] hover:to-[#CD2027] hover:scale-[1.04] hover:shadow-xl hover:shadow-[#CD2027]/40 active:scale-95"
               >
-                <Link href="#contacto">
+                <Link href="#contacto" className="flex items-center justify-center whitespace-normal text-center flex-wrap">
                   Solicitar asesoría gratuita
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
 
@@ -123,9 +123,9 @@ export function ViewSonicHero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="group rounded-full border-foreground/20 bg-background px-8 font-semibold hover:bg-foreground/5 hover:border-[#CD2027]/40 transition-all hover:scale-[1.02] active:scale-95"
+                className="group w-full sm:w-auto h-auto py-3.5 md:py-4 rounded-full border-foreground/20 bg-background px-6 md:px-8 text-sm md:text-base font-semibold hover:bg-foreground/5 hover:border-[#CD2027]/40 transition-all hover:scale-[1.02] active:scale-95"
               >
-                <Link href="#portafolio">Ver portafolio</Link>
+                <Link href="#portafolio" className="flex justify-center whitespace-normal text-center">Ver portafolio</Link>
               </Button>
             </div>
 

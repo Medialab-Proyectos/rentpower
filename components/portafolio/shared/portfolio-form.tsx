@@ -299,7 +299,7 @@ export function PortfolioForm({
               <Button
                 type="submit"
                 size="lg"
-                className="group w-full rounded-xl font-bold text-base py-6 transition-all hover:scale-[1.02] hover:shadow-xl active:scale-95"
+                className="group w-full rounded-xl font-bold h-auto py-5 text-sm md:text-base whitespace-normal text-center transition-all hover:scale-[1.02] hover:shadow-xl active:scale-95"
                 style={{
                   background: accentColor !== "var(--accent)"
                     ? `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)`
@@ -314,10 +314,10 @@ export function PortfolioForm({
                 {isSubmitting ? (
                   <Loader2 className="animate-spin h-5 w-5" />
                 ) : (
-                  <>
+                  <div className="flex flex-wrap items-center justify-center gap-2">
                     {ctaLabel}
-                    <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </>
+                    <Send className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                  </div>
                 )}
               </Button>
 

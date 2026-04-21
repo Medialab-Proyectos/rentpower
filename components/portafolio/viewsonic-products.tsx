@@ -152,7 +152,7 @@ export function ViewSonicProducts() {
                 aria-selected={isActive}
                 role="tab"
                 className={cn(
-                  "group flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+                  "group flex items-center gap-1.5 sm:gap-2 rounded-full border px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
                   isActive
                     ? "border-transparent text-white shadow-lg scale-[1.04]"
                     : "border-foreground/15 bg-background text-muted-foreground hover:bg-foreground/5 hover:text-foreground hover:scale-[1.02]"
@@ -239,9 +239,9 @@ export function ViewSonicProducts() {
             </div>
 
             {/* Stat + CTA */}
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col xl:flex-row items-center xl:items-stretch gap-4 md:gap-6 mt-4 w-full">
               <div
-                className="flex-shrink-0 rounded-2xl border px-5 py-3 text-center"
+                className="flex-shrink-0 w-full xl:w-auto rounded-2xl border px-5 py-3 text-center flex flex-col justify-center"
                 style={{ borderColor: `${cat.accent}30`, background: cat.lightAccent }}
               >
                 <div className="text-3xl font-black tracking-tight" style={{ color: cat.accent }}>
@@ -253,15 +253,15 @@ export function ViewSonicProducts() {
               <Button
                 asChild
                 size="lg"
-                className="group flex-1 rounded-full font-bold text-white shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl active:scale-95"
+                className="group w-full xl:flex-1 h-auto py-4 rounded-xl xl:rounded-full font-bold text-sm sm:text-base text-white shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl active:scale-95"
                 style={{
                   background: `linear-gradient(135deg, ${cat.accent}, ${cat.accent}cc)`,
                   boxShadow: `0 8px 24px ${cat.accent}30`,
                 }}
               >
-                <Link href="#contacto">
+                <Link href="#contacto" className="flex items-center justify-center whitespace-normal text-center flex-wrap">
                   Solicitar información
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
@@ -284,7 +284,7 @@ export function ViewSonicProducts() {
               }}
             />
             {/* Bottom info overlay */}
-            <div className="absolute bottom-0 inset-x-0 p-6">
+            <div className="absolute bottom-0 inset-x-0 p-6 hidden lg:block">
               <div className="rounded-2xl border border-white/20 bg-white/10 dark:bg-background/60 backdrop-blur-md p-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -310,7 +310,7 @@ export function ViewSonicProducts() {
         </div>
 
         {/* Bottom trust row */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+        <div className="mt-12 hidden lg:flex flex-wrap items-center justify-center gap-3 md:gap-4">
           {[
             {
               icon: Award,

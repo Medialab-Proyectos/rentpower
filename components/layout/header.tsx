@@ -102,7 +102,7 @@ export function Header() {
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}
-              className="h-10 w-auto dark:hidden"
+              className="h-7 sm:h-8 lg:h-10 w-auto object-contain dark:hidden"
               priority
             />
             <Image
@@ -110,7 +110,7 @@ export function Header() {
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}
-              className="hidden h-10 w-auto dark:block"
+              className="hidden h-7 sm:h-8 lg:h-10 w-auto object-contain dark:block"
               priority
             />
           </Link>
@@ -226,13 +226,13 @@ export function Header() {
             className={cn(
               "font-bold border-0 shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95",
               isViewSonic
-                ? "bg-gradient-to-r from-[#CD2027] to-[#e85960] hover:from-[#b01a20] hover:to-[#CD2027] text-white shadow-[#CD2027]/30"
+                ? "bg-gradient-to-r from-[#CD2027] to-[#e85960] hover:from-[#b01a20] hover:to-[#CD2027] text-white shadow-[#CD2027]/30 h-auto py-2 text-xs sm:text-sm"
                 : "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black",
               isLanding ? "flex" : "hidden lg:flex"
             )}
           >
-            <Link href={isViewSonic ? "#contacto" : "/contacto-empresas"}>
-              {isViewSonic ? "Solicitar asesoría" : "Contáctanos"}
+            <Link href={isViewSonic ? "#contacto" : "/contacto-empresas"} className="text-center whitespace-normal">
+              {isViewSonic ? <><span className="sm:hidden">Asesoría</span><span className="hidden sm:inline">Solicitar asesoría</span></> : "Contáctanos"}
             </Link>
           </Button>
 
