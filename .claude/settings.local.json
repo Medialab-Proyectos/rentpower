@@ -1,27 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && claude init)",
-      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && pnpm add xlsx)",
-      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && npm install xlsx)",
-      "WebFetch(domain:docs.google.com)",
-      "WebFetch(domain:doc-0o-84-sheets.googleusercontent.com)",
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && node -e \"\nconst XLSX = require\\('xlsx'\\);\nconst wb = XLSX.readFile\\('C:/Users/coben/OneDrive/Documents/Precios Web.xlsx'\\);\nconsole.log\\('Sheets:', wb.SheetNames\\);\nconst sheet = wb.Sheets[wb.SheetNames[0]];\nconst rows = XLSX.utils.sheet_to_json\\(sheet, { defval: '' }\\);\nconsole.log\\('Total rows:', rows.length\\);\nconsole.log\\('Headers:', Object.keys\\(rows[0] || {}\\)\\);\nconsole.log\\('First 3 rows:'\\);\nrows.slice\\(0, 3\\).forEach\\(\\(r, i\\) => console.log\\(i, JSON.stringify\\(r\\)\\)\\);\n\")",
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && node -e \"\nconst XLSX = require\\('xlsx'\\);\nconst wb = XLSX.readFile\\('C:/Users/coben/OneDrive/Documents/Precios Web.xlsx'\\);\nconst sheet = wb.Sheets[wb.SheetNames[0]];\n// Saltar la fila 1 \\(título\\) y usar fila 2 como encabezados\nconst rows = XLSX.utils.sheet_to_json\\(sheet, { defval: '', range: 1 }\\);\nconsole.log\\('Total rows:', rows.length\\);\nconsole.log\\('Headers:', Object.keys\\(rows[0] || {}\\)\\);\nconsole.log\\('First 3 rows:'\\);\nrows.slice\\(0, 3\\).forEach\\(\\(r, i\\) => console.log\\(i, JSON.stringify\\(r\\)\\)\\);\n\")",
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && node -e \"\nconst XLSX = require\\('xlsx'\\);\nconst wb = XLSX.readFile\\('C:/Users/coben/OneDrive/Documents/Precios Web.xlsx'\\);\nconst sheet = wb.Sheets[wb.SheetNames[0]];\n// Leer como arrays para ver la estructura real\nconst all = XLSX.utils.sheet_to_json\\(sheet, { header: 1, defval: '' }\\);\nconsole.log\\('Row 0 \\(fila 1\\):', JSON.stringify\\(all[0]\\)\\);\nconsole.log\\('Row 1 \\(fila 2\\):', JSON.stringify\\(all[1]\\)\\);\nconsole.log\\('Row 2 \\(fila 3\\):', JSON.stringify\\(all[2]\\)\\);\nconsole.log\\('Row 3 \\(fila 4\\):', JSON.stringify\\(all[3]\\)\\);\n\")",
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && node -e \"\nconst XLSX = require\\('xlsx'\\);\n\nconst COLUMN_MAP = {\n  'Nombre del producto':     'nombreProducto',\n  'Descripción de la pieza': 'descripcionPieza',\n  'Número de pieza':         'numeroPieza',\n  'Pieza secundaria':        'piezaSecundaria',\n  'Precio de intercambio':   'precioIntercambio',\n};\n\nfunction mapRawRow\\(row\\) {\n  const result = {};\n  for \\(const [excelKey, internalKey] of Object.entries\\(COLUMN_MAP\\)\\) {\n    result[internalKey] = row[excelKey] ?? '';\n  }\n  return result;\n}\n\nconst wb = XLSX.readFile\\('C:/Users/coben/OneDrive/Documents/Precios Web.xlsx'\\);\nconst sheet = wb.Sheets[wb.SheetNames[0]];\nconst allRows = XLSX.utils.sheet_to_json\\(sheet, { header: 1, defval: '' }\\);\n\nconst headerRowIndex = allRows.findIndex\\(\n  \\(row\\) => Array.isArray\\(row\\) && String\\(row[0]\\).trim\\(\\) === 'Nombre del producto'\n\\);\nconsole.log\\('headerRowIndex:', headerRowIndex\\);\n\nconst headers = allRows[headerRowIndex].map\\(h => String\\(h\\).trim\\(\\)\\);\nconsole.log\\('headers:', headers\\);\n\nconst dataRows = allRows.slice\\(headerRowIndex + 1\\).filter\\(row => row.some\\(c => c !== ''\\)\\);\nconst mapped = dataRows.slice\\(0, 5\\).map\\(row => {\n  const obj = {};\n  headers.forEach\\(\\(h, i\\) => { obj[h] = row[i] ?? ''; }\\);\n  return mapRawRow\\(obj\\);\n}\\);\nconsole.log\\('Sample rows:', JSON.stringify\\(mapped, null, 2\\)\\);\nconsole.log\\('Total data rows:', dataRows.length\\);\n\")",
-      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && node -e \"\nconst XLSX = require\\('./node_modules/xlsx'\\);\nconst fs = require\\('fs'\\);\nconst buf = fs.readFileSync\\('./data/precios-web.xlsx'\\);\nconst wb = XLSX.read\\(buf, { type: 'buffer' }\\);\nconsole.log\\('Sheets:', wb.SheetNames\\);\nconst ws = wb.Sheets[wb.SheetNames[0]];\nconst rows = XLSX.utils.sheet_to_json\\(ws, { header: 1, defval: '' }\\);\nconsole.log\\('Fila 0:', JSON.stringify\\(rows[0]\\)\\);\nconsole.log\\('Fila 1:', JSON.stringify\\(rows[1]\\)\\);\nconsole.log\\('Fila 2:', JSON.stringify\\(rows[2]\\)\\);\nconsole.log\\('Fila 3:', JSON.stringify\\(rows[3]\\)\\);\nconsole.log\\('Total filas:', rows.length\\);\n\")",
-      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && node -e \"\nconst XLSX = require\\('./node_modules/xlsx'\\);\nconst fs = require\\('fs'\\);\nconst buf = fs.readFileSync\\('./data/precios-web.xlsx'\\);\nconst wb = XLSX.read\\(buf, { type: 'buffer' }\\);\nconst ws = wb.Sheets[wb.SheetNames[0]];\nconst rows = XLSX.utils.sheet_to_json\\(ws, { defval: '', range: 1 }\\);\nconsole.log\\('Total items:', rows.length\\);\nconsole.log\\('Primer item:', JSON.stringify\\(rows[0], null, 2\\)\\);\nconsole.log\\('Claves:', Object.keys\\(rows[0]\\)\\);\n\")",
-      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5\" && node -e \"\nconst XLSX = require\\('./node_modules/xlsx'\\);\nconst fs = require\\('fs'\\);\nconst buf = fs.readFileSync\\('./data/precios-web.xlsx'\\);\nconst wb = XLSX.read\\(buf, { type: 'buffer' }\\);\nconst ws = wb.Sheets[wb.SheetNames[0]];\nconst allRows = XLSX.utils.sheet_to_json\\(ws, { header: 1, defval: '' }\\);\nconst headers = allRows[1].map\\(h => String\\(h\\).trim\\(\\)\\);\nconst dataRows = allRows.slice\\(2\\);\nconst rows = dataRows\n  .filter\\(row => row.some\\(c => c !== ''\\)\\)\n  .map\\(row => {\n    const obj = {};\n    headers.forEach\\(\\(h, i\\) => { obj[h] = row[i] ?? ''; }\\);\n    return obj;\n  }\\);\nconsole.log\\('Encabezados:', headers\\);\nconsole.log\\('Total filas de datos:', rows.length\\);\nconsole.log\\('Primera fila:', JSON.stringify\\(rows[0]\\)\\);\nconsole.log\\('Productos únicos:', [...new Set\\(rows.map\\(r => r['Nombre del producto']\\)\\)].slice\\(0,10\\)\\);\n\")",
-      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\MacPower versiones\\\\Version 5\" && pnpm add @vercel/speed-insights)",
-      "Bash(grep -r soluciones '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5' --include=*.tsx --include=*.ts)",
-      "Bash(xargs grep:*)",
-      "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/components' -type f -name *valor-it* -o -name *flip-card* -o -name *stepper* -o -name *accordion*)",
-      "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/public' -type f \\\\\\(-name *.svg -o -name *.png -o -name *.jpg \\\\\\))",
-      "Bash(pnpm tsc:*)",
-      "Bash(find '/c/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5' -path */.next -prune -o -type f -name *featured*catalog* -o -name *partners* -o -name *carousel*)",
-      "Bash(npx tsc:*)",
-      "Bash(pnpm build:*)"
+      "Bash(claude init)",
+      "Bash(cd \"C:/Users/coben/Desktop/Simon/web1\" && npm run build 2>&1 | tail -40)",
+      "Bash(cd \"C:/Users/coben/Desktop/Simon/web1\" && npm run build 2>&1 | tail -30)",
+      "Bash(cd \"C:\\\\Users\\\\coben\\\\Desktop\\\\Simon\\\\web1\" && npm run build 2>&1 | tail -20)",
+      "WebFetch(domain:www.pexels.com)",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:source.unsplash.com)",
+      "WebFetch(domain:api.unsplash.com)",
+      "WebSearch",
+      "WebFetch(domain:pixabay.com)",
+      "Bash(powershell -Command \"Remove-Item 'C:/Users/coben/Desktop/Simon/web1/public/images/test.jpg' -ErrorAction SilentlyContinue; Get-ChildItem 'C:/Users/coben/Desktop/Simon/web1/public/images/*.jpg' | Sort-Object Name | ForEach-Object { Write-Host \\('{0,-30} {1,8}KB' -f $_.Name, [math]::Round\\($_.Length/1024\\)\\) }\")",
+      "Bash(powershell -Command \"Get-ChildItem 'C:/Users/coben/Desktop/Simon/web1/public/images/' | Select-Object Name, Length | Format-Table -AutoSize\")",
+      "Bash(powershell -Command \"Remove-Item 'C:/Users/coben/Desktop/Simon/web1/public/images/test.jpg'; Get-ChildItem 'C:/Users/coben/Desktop/Simon/web1/public/images/' | Select-Object Name, Length | Format-Table -AutoSize\")",
+      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/Simon/Web/Version1/simonweb\" && npm run build 2>&1 | tail -40)",
+      "Bash(cd \"C:/Users/coben/OneDrive/Desktop/Simon/Web/Version1/simonweb\" && npm run build 2>&1 | tail -30)",
+      "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\Simon\\\\Web\\\\Version1\\\\simonweb\" && npm run build 2>&1 | tail -30)",
+      "Bash(cd:*)",
+      "Bash(node:*)"
     ]
   }
 }

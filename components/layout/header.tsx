@@ -78,7 +78,10 @@ export function Header() {
   const isLanding =
     pathname === "/portafolio/daas/landing" ||
     pathname === "/labpower/landing" ||
-    pathname === "/portafolio/valor-it-landing";
+    pathname === "/portafolio/valor-it-landing" ||
+    pathname === "/portafolio/viewsonic";
+
+  const isViewSonic = pathname === "/portafolio/viewsonic";
 
   const isParentActive = (item: any) => {
     if (item.name === "Portafolio") return pathname.startsWith("/portafolio");
@@ -95,7 +98,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/macpower-logo-original.svg"
+              src="/images/macpower-logo-original.png"
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}
@@ -103,7 +106,7 @@ export function Header() {
               priority
             />
             <Image
-              src="/images/macpower-logo-white.svg"
+              src="/images/macpower-logo-white.png"
               alt="MacPower IT Solutions - Apple Business Partner"
               width={320}
               height={60}
@@ -215,17 +218,22 @@ export function Header() {
             </div>
           )}
 
-          {!isLanding && <ThemeToggle />}
+          {(!isLanding || isViewSonic) && <ThemeToggle />}
 
           <Button
             asChild
             size="sm"
             className={cn(
-              "font-bold border-0 shadow-lg transition-all duration-300 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black",
+              "font-bold border-0 shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95",
+              isViewSonic
+                ? "bg-gradient-to-r from-[#CD2027] to-[#e85960] hover:from-[#b01a20] hover:to-[#CD2027] text-white shadow-[#CD2027]/30"
+                : "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black",
               isLanding ? "flex" : "hidden lg:flex"
             )}
           >
-            <Link href="/contacto-empresas">Contáctanos</Link>
+            <Link href={isViewSonic ? "#contacto" : "/contacto-empresas"}>
+              {isViewSonic ? "Solicitar asesoría" : "Contáctanos"}
+            </Link>
           </Button>
 
           {/* Mobile menu — hidden on landing */}

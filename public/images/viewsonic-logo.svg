@@ -1,0 +1,35 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 680 130"
+  overflow="visible"
+  fill="none"
+  role="img"
+  aria-label="ViewSonic"
+>
+  <!--
+    ViewSonic wordmark — serif italic bold, crimson brand color #9B1B42
+    viewBox is oversized + overflow=visible so text never clips.
+  -->
+  <text
+    x="4"
+    y="100"
+    font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif"
+    font-size="105"
+    font-weight="bold"
+    font-style="italic"
+    fill="#9B1B42"
+    letter-spacing="-1"
+  >ViewSonic</text>
+
+  <!-- ® circle badge aligned top-right of the wordmark -->
+  <circle cx="662" cy="20" r="14" fill="#9B1B42"/>
+  <text
+    x="662"
+    y="26"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="14"
+    font-weight="bold"
+    fill="white"
+    text-anchor="middle"
+  >®</text>
+</svg>
