@@ -51,12 +51,6 @@ const slides = [
     objectFit: "contain" as const,
     href: "/portafolio/valor-it",
   },
-  {
-    id: 7,
-    image: "/images/bannergamer.png",
-    imageOnly: true,
-    objectFit: "contain" as const,
-  },
 ];
 
 export function HeroSection() {
