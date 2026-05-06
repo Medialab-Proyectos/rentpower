@@ -5,8 +5,10 @@
  */
 export function ViewSonicLogo({
   className = "h-9 w-auto",
+  color = "#9B1B42",
 }: {
   className?: string;
+  color?: string;
 }) {
   return (
     <svg
@@ -28,14 +30,14 @@ export function ViewSonicLogo({
         fontSize="78"
         fontWeight="bold"
         fontStyle="italic"
-        fill="#9B1B42"
+        fill={color}
         letterSpacing="-1"
         overflow="visible"
       >
         ViewSonic
       </text>
       {/* ® symbol */}
-      <circle cx="408" cy="14" r="11" fill="#9B1B42" />
+      <circle cx="408" cy="14" r="11" fill={color} />
       <text
         x="408"
         y="19"

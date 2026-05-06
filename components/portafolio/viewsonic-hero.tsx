@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Monitor, Projector, Layers, Tv2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { ViewSonicLogo } from "./viewsonic-logo";
 
 const trustPoints = [
   "Distribuidor autorizado ViewSonic en Colombia",
@@ -50,14 +51,9 @@ export function ViewSonicHero() {
 
             {/* ── Dual brand logos — ViewSonic PNG + MacPower adaptive ── */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              {/* ViewSonic logo image */}
-              <Image
-                src="/files/ViewSonic_logo.png"
-                alt="ViewSonic"
-                width={180}
-                height={50}
-                className="h-6 sm:h-7 md:h-9 w-auto object-contain shrink-0 max-w-[120px] sm:max-w-[180px]"
-              />
+              <div className="rounded-lg bg-[#07111a]/70 px-2 py-1 dark:bg-transparent dark:px-0 dark:py-0">
+                <ViewSonicLogo className="h-6 sm:h-7 md:h-9 w-auto shrink-0 max-w-[120px] sm:max-w-[180px]" color="#ffffff" />
+              </div>
 
               <span className="h-6 sm:h-8 w-px bg-foreground/15" />
 
@@ -129,19 +125,6 @@ export function ViewSonicHero() {
               </Button>
             </div>
 
-            {/* Mini stats */}
-            <div className="flex flex-wrap gap-6 pt-2 border-t border-foreground/10">
-              {[
-                { value: "30K+", label: "Horas Láser" },
-                { value: "4K UHD", label: "Resolución" },
-                { value: "500+", label: "Empresas Col." },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <div className="text-xl font-black text-[#CD2027]">{s.value}</div>
-                  <div className="text-xs text-muted-foreground">{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* ── Right: hero image + floating overlays ── */}
@@ -166,14 +149,8 @@ export function ViewSonicHero() {
             </div>
 
             {/* Floating ViewSonic logo badge (top-right) */}
-            <div className="absolute -right-4 -top-6 z-20 flex items-center gap-3 rounded-2xl border border-[#CD2027]/30 bg-white dark:bg-background/90 backdrop-blur-md px-5 py-3 shadow-xl shadow-[#CD2027]/20">
-              <Image
-                src="/files/ViewSonic_logo.png"
-                alt="ViewSonic"
-                width={110}
-                height={30}
-                className="h-6 w-auto object-contain"
-              />
+            <div className="absolute -right-4 -top-6 z-20 flex items-center gap-3 rounded-2xl border border-[#CD2027]/30 bg-[#07111a]/95 backdrop-blur-md px-5 py-3 shadow-xl shadow-[#CD2027]/20">
+              <ViewSonicLogo className="h-6 w-auto" color="#ffffff" />
             </div>
 
             {/* Floating product category pills (left) */}

@@ -12,35 +12,35 @@ const categories = [
     id: "proyectores",
     icon: Projector,
     title: "Proyectores Láser",
-    subtitle: "Alta durabilidad · DLP Technology",
+    subtitle: "Alta durabilidad · Proyección láser",
     description:
       "Proyectores con tecnología láser DLP diseñados para entornos que requieren alto desempeño, continuidad operativa y bajo mantenimiento. Ofrecen imágenes brillantes, larga vida útil y flexibilidad de instalación para espacios corporativos, educativos y de gran formato.",
     features: [
-      "Hasta 30,000 horas de vida útil láser",
+      "Hasta 30.000 horas de vida útil del láser",
       "Brillo superior sin degradación de imagen",
       "Instalación flexible (corta, ultracorta, larga distancia)",
-      "Bajo costo de mantenimiento total",
+      "Menor costo total de mantenimiento (TCO)",
     ],
     useCases: ["Salas de conferencias", "Auditorios y teatros", "Aulas universitarias"],
     accent: "#CD2027",
     lightAccent: "rgba(205, 32, 39, 0.08)",
-    stat: "30K h",
-    statLabel: "Vida útil láser",
+    stat: "30 mil",
+    statLabel: "Horas de vida útil",
     image: "/images/viewsonic-projector-room.png",
     imageAlt: "Proyector láser ViewSonic en auditorio corporativo",
   },
   {
     id: "interactivas",
     icon: Monitor,
-    title: "Pantallas Interactivas",
+    title: "Pantallas Interactivas ViewBoard",
     subtitle: "ViewBoard® · Colaboración inteligente",
     description:
-      "Las pantallas interactivas ViewBoard permiten optimizar la colaboración y la productividad con una experiencia táctil intuitiva, integración de software y herramientas que facilitan la gestión de contenidos y el trabajo en equipo.",
+      "Las pantallas interactivas ViewBoard, disponibles desde 55 hasta 110 pulgadas, permiten optimizar la colaboración y la productividad con una experiencia táctil intuitiva, integración de software y herramientas que facilitan la gestión de contenidos y el trabajo en equipo.",
     features: [
-      "Pantalla táctil multiusuario simultáneo",
-      "Software de colaboración integrado incluido",
-      "Compatible con videoconferencia (Zoom, Teams)",
-      "Integración con dispositivos móviles y PC",
+      "Pantalla multitáctil de hasta 50 puntos",
+      "Suite de software ViewSonic incluida",
+      "Integración con entornos Google y Microsoft",
+      "Transmisión y uso compartido de pantalla con AirSync",
     ],
     useCases: ["Salas de juntas ejecutivas", "Aulas interactivas", "Centro de operaciones"],
     accent: "#0070C0",
@@ -58,15 +58,16 @@ const categories = [
     description:
       "Un portafolio completo que cubre desde necesidades básicas de oficina hasta entornos profesionales exigentes. Incluye monitores para edición, soluciones con docking USB-C para videoconferencia y equipos de alto desempeño para aplicaciones especializadas y gaming.",
     features: [
-      "Monitores USB-C con docking integrado",
-      "Calibración de color profesional certificada",
-      "Pantallas ergonómicas para largas jornadas",
-      "Gaming con alta tasa de refresco",
+      "Modelos con docking USB-C de un solo cable",
+      "Serie VP profesional con calibración de color certificada",
+      "Características ergonómicas para mayor comodidad",
+      "Monitores para gamers, desde casual hasta profesional",
     ],
     useCases: ["Diseño gráfico y edición", "Trabajo remoto", "Estaciones de desarrollo"],
     accent: "#2EAFC7",
     lightAccent: "rgba(46, 175, 199, 0.08)",
-    stat: "144Hz",
+    statPrefix: "Hasta",
+    stat: "240Hz",
     statLabel: "Tasa de refresco",
     image: "/images/viewsonic-monitor-workstation.png",
     imageAlt: "Estación de trabajo con monitores profesionales ViewSonic",
@@ -75,7 +76,7 @@ const categories = [
     id: "signage",
     icon: Tv2,
     title: "Digital Signage",
-    subtitle: "Señalización digital · 24/7 operation",
+    subtitle: "Pantallas comerciales e industriales",
     description:
       "Soluciones de señalización digital diseñadas para operación continua y gestión eficiente de contenidos. Ideales para entornos comerciales y corporativos que requieren comunicar de forma clara, dinámica y con alto impacto visual.",
     features: [
@@ -87,7 +88,7 @@ const categories = [
     useCases: ["Retail y tiendas", "Lobbies corporativos", "Menús digitales y hospitality"],
     accent: "#F59E0B",
     lightAccent: "rgba(245, 158, 11, 0.08)",
-    stat: "700 nit",
+    stat: "500 nits",
     statLabel: "Brillo máximo",
     image: "/images/viewsonic-digital-signage.png",
     imageAlt: "Pantalla de digital signage ViewSonic en lobby comercial",
@@ -244,8 +245,11 @@ export function ViewSonicProducts() {
                 className="flex-shrink-0 w-full xl:w-auto rounded-2xl border px-5 py-3 text-center flex flex-col justify-center"
                 style={{ borderColor: `${cat.accent}30`, background: cat.lightAccent }}
               >
-                <div className="text-3xl font-black tracking-tight" style={{ color: cat.accent }}>
-                  {cat.stat}
+                <div className="flex items-baseline justify-center gap-1.5 tracking-tight" style={{ color: cat.accent }}>
+                  {"statPrefix" in cat && cat.statPrefix ? (
+                    <span className="text-sm font-bold">{cat.statPrefix}</span>
+                  ) : null}
+                  <span className="text-3xl font-black">{cat.stat}</span>
                 </div>
                 <div className="text-xs text-muted-foreground mt-0.5">{cat.statLabel}</div>
               </div>

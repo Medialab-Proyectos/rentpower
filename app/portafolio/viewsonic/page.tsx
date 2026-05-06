@@ -58,10 +58,10 @@ export const metadata: Metadata = {
 };
 
 const viewsonicKpis = [
-  { value: "30K+", label: "Horas Vida Útil Láser" },
-  { value: "4K UHD", label: "Resolución Máxima" },
-  { value: "24/7", label: "Operación Continua" },
-  { value: "100%", label: "Respaldo MacPower" },
+  { value: "Empresa", label: "Salas de juntas y colaboración" },
+  { value: "Educación", label: "Aulas interactivas y auditorios" },
+  { value: "Retail", label: "Comunicación visual comercial" },
+  { value: "Operación", label: "Centros de control y señalización" },
 ];
 
 const viewsonicInterests = [
