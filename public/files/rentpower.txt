@@ -1,0 +1,511 @@
+# CLAUDE CODE PROMPT — LANDING PAGE PREMIUM B2B PARA RENTPOWER
+
+Actúa como un equipo completo compuesto por:
+- UX Strategist Senior
+- UX Researcher
+- Service Designer
+- Creative Director
+- Frontend Architect
+- Experto en Consumer Experience B2B
+- Especialista en diseño web premium 2026
+- Experto en comportamiento humano y economía conductual
+- Especialista en SaaS, DaaS y tecnología enterprise
+
+Tu objetivo es diseñar y desarrollar una landing page premium, moderna, tecnológica y altamente persuasiva para RENTPOWER, enfocada en canales, distribuidores y empresas de tecnología en Latinoamérica.
+
+NO quiero una landing genérica tipo plantilla.
+NO quiero un sitio corporativo aburrido.
+NO quiero exceso de texto plano.
+NO quiero diseño tipo dashboard viejo.
+
+La landing debe sentirse:
+- Enterprise
+- Tecnológica
+- Estratégica
+- Premium
+- Moderna
+- Con sensación de alto valor
+- Tipo startup enterprise global
+- Visualmente impactante
+- Muy enfocada en conversión
+- Con microinteracciones elegantes
+- Con una narrativa clara
+- Con sensación de innovación y respaldo corporativo
+
+Debe sentirse como mezcla entre:
+- Palo Alto Networks
+- Snowflake
+- Crowdstrike
+- Notion Enterprise
+- Stripe
+- Vercel
+- IBM modernizado
+- ServiceNow
+- Cisco modern enterprise
+- Cloudflare
+- Datadog
+- NVIDIA Enterprise
+
+NO copiar interfaces.
+Solo tomar inspiración visual y narrativa.
+
+====================================================
+CONTEXTO DEL NEGOCIO
+====================================================
+
+RENTPOWER es un wholesaler de soluciones tecnológicas respaldado por DAGA Holding.
+
+No vende directamente al consumidor final.
+
+Su enfoque es:
+- canales
+- partners
+- distribuidores
+- integradores
+- empresas de tecnología
+- ecosistemas B2B
+
+RentPower busca diferenciarse de otros mayoristas tecnológicos tradicionales.
+
+Su enfoque NO es vender cajas.
+Su enfoque es:
+- servicios
+- ecosistemas
+- rentabilidad recurrente
+- hardware como servicio
+- cloud
+- ciberseguridad
+- networking
+- digital learning
+- soporte consultivo
+- ecosistemas tecnológicos
+
+====================================================
+INSIGHTS IMPORTANTES DEL UX RESEARCH
+====================================================
+
+Problemas detectados en el mercado:
+- Mayoristas tradicionales se ven viejos y poco innovadores
+- Las páginas actuales parecen catálogos aburridos
+- Los canales no entienden claramente el valor agregado
+- Mucha competencia comunica exactamente igual
+- Hay exceso de tecnicismos
+- No existe storytelling visual
+- Los sitios no transmiten confianza moderna
+- No muestran claramente:
+  - soporte
+  - acompañamiento
+  - negocio recurrente
+  - rentabilidad
+  - crecimiento
+  - protección del canal
+- La mayoría de mayoristas parecen “solo proveedores”
+
+La landing debe transmitir:
+- crecimiento
+- escalabilidad
+- rentabilidad
+- respaldo
+- innovación
+- inteligencia
+- negocio recurrente
+- partnership real
+
+====================================================
+ESTILO VISUAL
+====================================================
+
+Diseño visual 2026.
+
+Características:
+- Fondo oscuro premium
+- Glassmorphism MUY sutil
+- Gradientes tecnológicos
+- Glow elegante
+- Azul eléctrico
+- Azul oscuro
+- Morado neón elegante
+- Cyan
+- Detalles holográficos
+- Motion suave
+- Efectos de partículas MUY sutiles
+- Sensación de infraestructura digital
+- Redes abstractas
+- Líneas dinámicas
+- Tecnología enterprise
+- Minimalismo premium
+
+NO hacer:
+- cyberpunk exagerado
+- futurismo gamer
+- dashboards saturados
+- UI estilo crypto barata
+- efectos exagerados
+
+====================================================
+TIPOGRAFÍA
+====================================================
+
+Usar combinación:
+- Space Grotesk
+- Inter
+
+Jerarquía MUY marcada.
+
+Headlines:
+- enormes
+- bold
+- muy visuales
+- mucho aire
+
+====================================================
+TECNOLOGÍA
+====================================================
+
+Usar:
+- Next.js App Router
+- TypeScript
+- Tailwind
+- shadcn/ui
+- Framer Motion
+- Responsive completo
+- Dark mode
+- Accesibilidad WCAG
+- SEO técnico
+- Performance optimizada
+
+====================================================
+ESTRUCTURA UX COMPLETA DE LA LANDING
+====================================================
+
+# 1. HERO SECTION
+
+Debe ser extremadamente impactante.
+
+Objetivo:
+“Hacer entender inmediatamente que RENTPOWER NO es un mayorista tradicional.”
+
+Debe incluir:
+- headline gigante
+- subtítulo estratégico
+- CTAs
+- visual tecnológico
+- motion elegante
+
+Headline ejemplo conceptual:
+“Construimos ecosistemas tecnológicos recurrentes para canales que quieren escalar.”
+
+NO usar exactamente ese.
+Crear mejores.
+
+Subheadline:
+Debe explicar:
+- DaaS
+- cloud
+- networking
+- ciberseguridad
+- digital learning
+- respaldo DAGA Holding
+
+CTA principal:
+- “Conviértete en canal”
+- “Hablar con un especialista”
+
+CTA secundario:
+- “Explorar soluciones”
+
+Visual del hero:
+- red digital abstracta
+- mapas conectados LATAM
+- glow enterprise
+- nodos
+- líneas de conexión
+- hologramas
+- visualización tipo infraestructura digital
+
+Debe sentirse vivo.
+
+Agregar:
+- logos de partners
+- badges
+- indicadores flotantes
+
+====================================================
+# 2. RESPALDO + CONFIANZA
+====================================================
+
+Sección visual elegante.
+
+Mostrar:
+- DAGA Holding
+- presencia LATAM
+- experiencia
+- empresas del grupo
+
+Usar:
+- mapa interactivo
+- líneas conectadas
+- países
+- nodulos
+- animaciones
+
+Basado en el portafolio original donde muestran LATAM. :contentReference[oaicite:0]{index=0}
+
+====================================================
+# 3. PROBLEMA DEL MERCADO
+====================================================
+
+Sección emocional B2B.
+
+Mostrar:
+- por qué los canales pierden dinero
+- por qué los modelos tradicionales ya no sirven
+- problemas del CAPEX
+- baja escalabilidad
+- soporte lento
+- falta de recurrencia
+- complejidad cloud
+- múltiples proveedores
+
+Usar:
+- storytelling visual
+- comparativas
+- métricas
+- cards animadas
+
+====================================================
+# 4. PROPUESTA DE VALOR
+====================================================
+
+Esta sección debe ser MUY poderosa visualmente.
+
+Basarse en:
+- maximización de rentabilidad
+- blindaje y soporte al canal
+- ecosistemas recurrentes
+- ventaja competitiva
+
+Tomado del documento original. :contentReference[oaicite:1]{index=1}
+
+NO usar simples iconos.
+
+Hacer:
+- cards premium
+- motion
+- visuales tecnológicos
+- conexiones dinámicas
+
+Cada card debe tener:
+- headline
+- explicación
+- microbeneficios
+- visual abstracto
+- hover elegante
+
+====================================================
+# 5. ECOSISTEMA RENTPOWER
+====================================================
+
+Una de las secciones MÁS IMPORTANTES.
+
+Debe mostrar las 4 unidades:
+- Reacondicionados
+- Digital Learning
+- Networking
+- Cloud & Cyber
+
+Basado en el portafolio original. :contentReference[oaicite:2]{index=2}
+
+La UX debe mostrar:
+“No son productos separados.
+Es un ecosistema conectado.”
+
+Hacer:
+- visual tipo órbita
+- sistema conectado
+- ecosystem map
+- animaciones de conexión
+
+====================================================
+# 6. SOLUCIONES / PORTAFOLIO
+====================================================
+
+Cada solución debe sentirse premium.
+
+Crear secciones individuales para:
+- WayGround
+- Alkira
+- SEQRITE
+- Reacondicionados
+- Luma Cloud
+- Quick Heal
+- Scalefusion
+- Pulsus
+
+Basado en el documento original. :contentReference[oaicite:3]{index=3}
+
+Cada bloque debe incluir:
+- qué es
+- cómo funciona
+- para qué cliente sirve
+- diferenciador
+- indicadores
+- visualización propia
+
+NO hacerlo tipo tabla aburrida.
+
+====================================================
+# 7. SOLUCIÓN 360°
+====================================================
+
+Sección MUY visual.
+
+Mostrar:
+DaaS + WayGround = solución integrada.
+
+Basado en:
+“Un contrato, un proveedor, un ciclo de pago.” :contentReference[oaicite:4]{index=4}
+
+Debe sentirse:
+- innovador
+- simple
+- inteligente
+- escalable
+
+====================================================
+# 8. BENEFICIOS FINANCIEROS
+====================================================
+
+Mostrar:
+- ingresos recurrentes
+- sin CAPEX
+- optimización fiscal LATAM
+- renovación tecnológica
+- soporte incluido
+
+Usar:
+- gráficos
+- animaciones
+- métricas
+- visualización financiera moderna
+
+====================================================
+# 9. CÓMO TRABAJAMOS
+====================================================
+
+Flow visual elegante.
+
+Mostrar:
+1. Diagnóstico
+2. Arquitectura
+3. Preventa
+4. Implementación
+5. Soporte
+6. Escalamiento
+
+Debe sentirse:
+- enterprise
+- consultivo
+- estratégico
+
+====================================================
+# 10. TESTIMONIOS / SOCIAL PROOF
+====================================================
+
+Crear sección:
+- partners
+- casos
+- logos
+- quotes
+- métricas
+
+====================================================
+# 11. CTA FINAL
+====================================================
+
+MUY poderosa.
+
+Headline emocional y estratégico.
+
+Debe cerrar con:
+- crecimiento
+- partnership
+- escalabilidad
+- transformación
+
+====================================================
+# 12. FOOTER PREMIUM
+====================================================
+
+Debe verse elegante y corporativo.
+
+====================================================
+MICROINTERACCIONES
+====================================================
+
+Agregar:
+- hover glow
+- transitions suaves
+- parallax ligero
+- particles sutiles
+- animated gradients
+- reveal animations
+- smooth scrolling
+- floating elements
+
+====================================================
+UX IMPORTANTÍSIMO
+====================================================
+
+La landing debe:
+- explicar rápido
+- verse moderna
+- sentirse confiable
+- verse enterprise
+- transmitir innovación
+- evitar saturación técnica
+- tener narrativa visual
+- mostrar valor inmediatamente
+
+====================================================
+IMPORTANTE
+====================================================
+
+NO usar:
+- layouts genéricos
+- cards repetitivas aburridas
+- iconos cliché
+- exceso de texto
+- estilos bootstrap
+- fondos planos
+- secciones vacías
+- diseño corporativo viejo
+
+====================================================
+OUTPUT
+====================================================
+
+Genera:
+- estructura completa
+- componentes
+- copy UX
+- storytelling
+- animaciones
+- arquitectura visual
+- responsive
+- layout detallado
+- comportamiento UX
+- interacciones
+- diseño visual
+- propuesta estética
+- jerarquía visual
+- CTAs
+- experiencia completa
+
+La calidad debe sentirse:
+- premium
+- startup enterprise global
+- altamente estratégica
+- pensada por expertos UX/UI
+- visualmente memorable
+- lista para impresionar gerencia y canales B2B

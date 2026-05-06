@@ -18,7 +18,14 @@
       "Bash(cd \"C:/Users/coben/OneDrive/Desktop/Simon/Web/Version1/simonweb\" && npm run build 2>&1 | tail -30)",
       "Bash(cd \"C:\\\\Users\\\\coben\\\\OneDrive\\\\Desktop\\\\Simon\\\\Web\\\\Version1\\\\simonweb\" && npm run build 2>&1 | tail -30)",
       "Bash(cd:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(pnpm add:*)",
+      "Bash(cat ../.npmrc)",
+      "Bash(cat ~/../../.npmrc)",
+      "Bash(npm config:*)",
+      "Bash(mkdir -p \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/app/rentpower\")",
+      "Bash(mkdir -p \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/components/rentpower\")",
+      "Bash(pnpm build:*)"
     ]
   }
 }
