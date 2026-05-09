@@ -1,42 +1,37 @@
 "use client"
 
-import { TrendingUp, DollarSign, BarChart3, RefreshCw, Headphones } from "lucide-react"
+import { BarChart3, DollarSign, Headphones, RefreshCw, TrendingUp } from "lucide-react"
 
 const benefits = [
   {
     icon: TrendingUp,
     title: "Ingresos recurrentes",
     value: "MRR",
-    description: "Cada contrato genera revenue mensual predecible. Sin depender de la próxima venta.",
-    visual: [30, 45, 40, 55, 60, 72, 68, 80, 85, 92, 95, 100],
+    description: "Cada contrato puede sumar facturacion mensual predecible para el reseller.",
   },
   {
     icon: DollarSign,
-    title: "Sin CAPEX",
+    title: "Modelo OPEX",
     value: "OPEX",
-    description: "Tu cliente no compra. Paga una cuota mensual. Vos facturás mensual con margen incluido.",
-    visual: [100, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+    description: "El cliente final accede a tecnologia mediante cuotas mensuales en lugar de una compra inicial pesada.",
   },
   {
     icon: BarChart3,
-    title: "Optimización fiscal",
-    value: "100%",
-    description: "En la mayoría de legislaciones LATAM, el OPEX es deducible al 100%. Beneficio fiscal directo.",
-    visual: null,
+    title: "Mejor planeacion comercial",
+    value: "Pipeline",
+    description: "La recurrencia permite proyectar renovaciones, expansiones y oportunidades de cross-selling.",
   },
   {
     icon: RefreshCw,
-    title: "Renovación automática",
-    value: "Cíclica",
-    description: "Cada 24-48 meses el equipo se renueva. Nuevo contrato, nuevo margen, mismo cliente.",
-    visual: null,
+    title: "Renovacion ciclica",
+    value: "24-48m",
+    description: "El ciclo de vida abre nuevas conversaciones de actualizacion y continuidad con la misma cuenta.",
   },
   {
     icon: Headphones,
     title: "Soporte incluido",
-    value: "24/7",
-    description: "No vendés y desaparecés. El soporte está incluido en el contrato. Tu cliente siempre atendido.",
-    visual: null,
+    value: "L1-L3",
+    description: "RentPower acompana el ciclo tecnico para que el reseller no cargue solo con la complejidad.",
   },
 ]
 
@@ -48,79 +43,54 @@ export function RentPowerFinancial() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-xs text-emerald-400/80 mb-4" style={{ fontFamily: "var(--font-inter)" }}>
-            Modelo financiero
+            Modelo comercial
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-[-0.03em]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            El dinero habla.
-            <br />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            De ventas aisladas a{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">
-              Los números convencen.
+              negocios recurrentes
             </span>
           </h2>
-          <p className="text-white/50 max-w-xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
-            El modelo recurrente no es solo mejor para tu cliente. Es exponencialmente
-            mejor para tu negocio.
+          <p className="text-white/50 max-w-xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+            El foco es ayudar al reseller a construir ofertas que mantengan relacion comercial con el cliente despues del cierre inicial.
           </p>
         </div>
 
-        {/* Comparison chart */}
         <div className="max-w-4xl mx-auto mb-16 p-8 rounded-2xl border border-white/5 bg-white/[0.02]">
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Traditional */}
             <div>
               <h3 className="font-semibold text-white/60 mb-4 text-sm uppercase tracking-widest" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                Modelo Transaccional
+                Venta transaccional
               </h3>
               <div className="flex items-end gap-1 h-32">
                 {[85, 30, 60, 15, 90, 25, 50, 10, 70, 35, 20, 55].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-t bg-gradient-to-t from-red-500/30 to-red-400/10 border-t border-red-400/20"
-                    style={{ height: `${h}%` }}
-                  />
+                  <div key={i} className="flex-1 rounded-t bg-gradient-to-t from-red-500/30 to-red-400/10 border-t border-red-400/20" style={{ height: `${h}%` }} />
                 ))}
               </div>
-              <div className="flex justify-between mt-2 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
-                <span>Ene</span>
-                <span>Dic</span>
-              </div>
               <p className="text-sm text-red-400/60 mt-3" style={{ fontFamily: "var(--font-inter)" }}>
-                Ingresos impredecibles. Picos y valles.
+                Dependencia de nuevos cierres.
               </p>
             </div>
 
-            {/* Recurring */}
             <div>
               <h3 className="font-semibold text-emerald-400/80 mb-4 text-sm uppercase tracking-widest" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                Modelo RentPower (Recurrente)
+                Modelo recurrente
               </h3>
               <div className="flex items-end gap-1 h-32">
                 {[30, 38, 42, 48, 52, 58, 63, 68, 72, 78, 85, 92].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-t bg-gradient-to-t from-emerald-500/40 to-cyan-400/20 border-t border-emerald-400/30"
-                    style={{ height: `${h}%` }}
-                  />
+                  <div key={i} className="flex-1 rounded-t bg-gradient-to-t from-emerald-500/40 to-cyan-400/20 border-t border-emerald-400/30" style={{ height: `${h}%` }} />
                 ))}
               </div>
-              <div className="flex justify-between mt-2 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
-                <span>Ene</span>
-                <span>Dic</span>
-              </div>
               <p className="text-sm text-emerald-400/60 mt-3" style={{ fontFamily: "var(--font-inter)" }}>
-                Crecimiento compuesto. Predecible y escalable.
+                Continuidad, renovacion y expansion.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Benefits grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="group p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all duration-500"
-            >
+            <div key={benefit.title} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all duration-500">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                   <benefit.icon className="w-5 h-5 text-emerald-400" />
@@ -129,10 +99,10 @@ export function RentPowerFinancial() {
                   {benefit.value}
                 </div>
               </div>
-              <h3 className="font-semibold text-white/90 mb-2 tracking-[-0.01em]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              <h3 className="font-semibold text-white/90 mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                 {benefit.title}
               </h3>
-              <p className="text-sm text-white/40 leading-relaxed" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
+              <p className="text-sm text-white/40 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
                 {benefit.description}
               </p>
             </div>

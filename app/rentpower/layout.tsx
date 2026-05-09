@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Space_Grotesk, Inter } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -14,15 +14,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "RentPower | Ecosistemas Tecnológicos Recurrentes para Canales",
+  title: "RentPower | Mayorista de soluciones tecnologicas para resellers",
   description:
-    "Wholesaler de soluciones tecnológicas. DaaS, Cloud, Networking, Ciberseguridad y Digital Learning para canales y distribuidores en LATAM. Respaldado por DAGA Holding.",
+    "Mayorista de soluciones tecnologicas para resellers e integradores en LATAM. DaaS, cloud, networking, ciberseguridad, MDM y digital learning con respaldo de DAGA Holding.",
   keywords: [
-    "wholesaler tecnología LATAM",
+    "mayorista tecnologia LATAM",
     "DaaS Colombia",
     "Device as a Service",
-    "canal tecnología",
+    "canal tecnologia",
     "distribuidor IT",
+    "reseller IT",
     "ciberseguridad enterprise",
     "networking empresas",
     "cloud LATAM",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
     "DAGA Holding",
   ],
   openGraph: {
-    title: "RentPower | Ecosistemas Tecnológicos para Canales LATAM",
+    title: "RentPower | Mayorista tecnologico para resellers LATAM",
     description:
-      "No somos un mayorista tradicional. Construimos ecosistemas tecnológicos recurrentes para canales que quieren escalar.",
+      "RentPower codifica resellers y les entrega portafolio, acompanamiento comercial y soporte para revender soluciones tecnologicas en Colombia y Peru.",
     type: "website",
   },
 }

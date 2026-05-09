@@ -1,82 +1,92 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight, Zap } from "lucide-react"
+import { ArrowRight, MapPin, Zap } from "lucide-react"
+
+const countryCtas = [
+  {
+    country: "Colombia",
+    owner: "Especialista RentPower Colombia",
+    href: "https://wa.me/573001234567?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Colombia",
+  },
+  {
+    country: "Peru",
+    owner: "Especialista RentPower Peru",
+    href: "https://wa.me/51900123456?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Peru",
+  },
+]
 
 export function RentPowerCTA() {
   return (
     <section id="contacto" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <Image
           src="/images/rentpower/cybersecurity.png"
-          alt="Tecnología enterprise y ciberseguridad"
+          alt="Soluciones tecnologicas enterprise"
           fill
           className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0d1030]/90 to-[#0a0e1a]" />
       </div>
-      {/* Ambient glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[150px]" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[150px]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Badge */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
           <Zap className="w-3.5 h-3.5 text-amber-400" />
           <span className="text-xs text-white/60" style={{ fontFamily: "var(--font-inter)" }}>
-            Cupos limitados por país · 2026
+            Activacion para resellers en Colombia y Peru
           </span>
         </div>
 
-        {/* Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-[-0.03em]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-          El canal que no evoluciona,{" "}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+          Hable con el especialista de{" "}
           <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent">
-            desaparece.
+            su pais
           </span>
         </h2>
 
-        <p className="text-lg md:text-xl text-white/50 font-light max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
-          Los que se transforman hoy, dominan mañana.
-          <br />
-          Convertite en canal RentPower y empezá a construir ingreso recurrente desde el primer mes.
+        <p className="text-lg md:text-xl text-white/50 font-light max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+          Seleccione el mercado donde quiere codificar su empresa como reseller RentPower y active la conversacion por WhatsApp.
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <a
-            href="https://wa.me/573001234567?text=Quiero%20ser%20canal%20RentPower"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative px-8 py-4 font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2"
-            style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.01em" }}
-          >
-            Hablar con un especialista
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="#soluciones"
-            className="px-8 py-4 font-medium text-white/70 border border-white/10 rounded-xl hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-300"
-            style={{ fontFamily: "var(--font-inter)" }}
-          >
-            Ver portafolio completo
-          </a>
+        <div className="grid sm:grid-cols-2 gap-4 mb-12">
+          {countryCtas.map((cta) => (
+            <a
+              key={cta.country}
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] hover:border-blue-400/30 transition-all text-left"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 text-white/90 mb-2">
+                    <MapPin className="w-4 h-4 text-blue-400" />
+                    <span className="text-xl font-bold" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                      {cta.country}
+                    </span>
+                  </div>
+                  <p className="text-sm text-white/45" style={{ fontFamily: "var(--font-inter)" }}>
+                    {cta.owner}
+                  </p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-white/35 group-hover:text-blue-300 group-hover:translate-x-1 transition-all" />
+              </div>
+            </a>
+          ))}
         </div>
 
-        {/* Trust signals */}
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-400" />
-            Sin compromiso inicial
+            Codificacion de canal
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-400" />
-            Respuesta en 24h
+            Respuesta comercial
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-400" />
-            Assessment gratuito
+            Onboarding de portafolio
           </div>
         </div>
       </div>

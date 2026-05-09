@@ -1,49 +1,35 @@
 "use client"
 
-import { Search, PenTool, Presentation, Rocket, Headphones, TrendingUp } from "lucide-react"
+import { ClipboardCheck, FileText, Handshake, Rocket } from "lucide-react"
 
 const steps = [
   {
-    icon: Search,
+    icon: FileText,
     number: "01",
-    title: "Diagnóstico",
-    description: "Entendemos tu canal, tu mercado y tus clientes. Identificamos oportunidades inmediatas.",
-    detail: "Assessment de madurez + pipeline review",
+    title: "Recoleccion de documentos",
+    description: "El reseller entrega la informacion legal y comercial requerida para iniciar el proceso de alta.",
+    detail: "Documentacion + datos de contacto",
   },
   {
-    icon: PenTool,
+    icon: ClipboardCheck,
     number: "02",
-    title: "Arquitectura",
-    description: "Diseñamos la solución técnica y comercial. Pricing, bundling y propuesta de valor.",
-    detail: "Diseño de solución + business case",
+    title: "Validacion y cupo",
+    description: "RentPower revisa el perfil del partner, valida condiciones comerciales y define el cupo aplicable.",
+    detail: "Validacion comercial + credito",
   },
   {
-    icon: Presentation,
+    icon: Handshake,
     number: "03",
-    title: "Preventa",
-    description: "Te acompañamos frente al cliente final. Demos, POCs y presentaciones técnicas.",
-    detail: "Demo + POC + propuesta comercial",
+    title: "Alta de partner",
+    description: "El canal queda codificado para operar el portafolio, registrar oportunidades y recibir soporte.",
+    detail: "Codificacion + reglas de canal",
   },
   {
     icon: Rocket,
     number: "04",
-    title: "Implementación",
-    description: "Desplegamos la solución con metodología probada. Onboarding completo del cliente.",
-    detail: "Deploy + onboarding + capacitación",
-  },
-  {
-    icon: Headphones,
-    number: "05",
-    title: "Soporte",
-    description: "Soporte técnico continuo incluido. Tu cliente siempre atendido, vos siempre cubierto.",
-    detail: "Soporte L1-L3 + SLA garantizado",
-  },
-  {
-    icon: TrendingUp,
-    number: "06",
-    title: "Escalamiento",
-    description: "Identificamos oportunidades de upselling y cross-selling. Tu cuenta crece con nosotros.",
-    detail: "QBR + expansion planning",
+    title: "Objetivo comercial y onboarding",
+    description: "Se acuerda foco de negocio, marcas prioritarias y plan de salida al mercado con el equipo RentPower.",
+    detail: "Onboarding + plan comercial",
   },
 ]
 
@@ -55,66 +41,41 @@ export function RentPowerProcess() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/50 mb-4" style={{ fontFamily: "var(--font-inter)" }}>
-            Metodología
+            Proceso de codificacion
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-[-0.03em]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            Así trabajamos.{" "}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            Como su empresa se convierte en{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Consultivo, no transaccional.
+              reseller RentPower
             </span>
           </h2>
-          <p className="text-white/50 max-w-xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
-            No te vendemos y desaparecemos. Te acompañamos en cada paso del ciclo comercial.
+          <p className="text-white/50 max-w-xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+            Un proceso simple para habilitar al partner, proteger oportunidades y empezar a mover el portafolio.
           </p>
         </div>
 
-        {/* Process timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line - desktop */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-
-          <div className="space-y-6">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="group relative grid md:grid-cols-[64px_1fr] gap-4 md:gap-8"
-              >
-                {/* Number node */}
-                <div className="hidden md:flex items-start justify-center pt-6">
-                  <div className="relative w-10 h-10 rounded-full border border-white/10 bg-[#0a0e1a] flex items-center justify-center group-hover:border-blue-500/30 transition-colors z-10">
-                    <span className="text-xs font-bold text-white/40 group-hover:text-blue-400 transition-colors" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                      {step.number}
-                    </span>
-                  </div>
+        <div className="grid md:grid-cols-4 gap-5">
+          {steps.map((step) => (
+            <div key={step.number} className="group relative p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-500">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                  <step.icon className="w-5 h-5 text-blue-400" />
                 </div>
-
-                {/* Content card */}
-                <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-500">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
-                      <step.icon className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="md:hidden text-xs text-white/30 font-bold" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                          {step.number}
-                        </span>
-                        <h3 className="text-lg font-semibold text-white/90 tracking-[-0.02em]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-white/40 leading-relaxed mb-3" style={{ fontFamily: "var(--font-inter)", letterSpacing: "-0.01em" }}>
-                        {step.description}
-                      </p>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
-                        {step.detail}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <span className="text-xs font-bold text-white/25" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                  {step.number}
+                </span>
               </div>
-            ))}
-          </div>
+              <h3 className="text-lg font-semibold text-white/90 mb-3" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                {step.title}
+              </h3>
+              <p className="text-sm text-white/45 leading-relaxed mb-4" style={{ fontFamily: "var(--font-inter)" }}>
+                {step.description}
+              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs text-white/35" style={{ fontFamily: "var(--font-inter)" }}>
+                {step.detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
