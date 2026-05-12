@@ -2,10 +2,12 @@
   "rewrites": [
     {
       "source": "/",
+      "has": [{ "type": "host", "value": "rentpower.vercel.app" }],
       "destination": "/rentpower"
     },
     {
       "source": "/((?!_next|rentpower|api|favicon\\.ico).*)",
+      "has": [{ "type": "host", "value": "rentpower.vercel.app" }],
       "destination": "/rentpower/$1"
     }
   ]
