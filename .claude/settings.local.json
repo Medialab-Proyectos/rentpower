@@ -25,7 +25,9 @@
       "Bash(npm config:*)",
       "Bash(mkdir -p \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/app/rentpower\")",
       "Bash(mkdir -p \"C:/Users/coben/OneDrive/Desktop/MacPower versiones/Version 5/components/rentpower\")",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:rentpower.vercel.app)",
+      "Bash(pnpm dev:*)"
     ]
   }
 }

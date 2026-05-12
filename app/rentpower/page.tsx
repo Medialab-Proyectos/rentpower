@@ -1,4 +1,5 @@
 import { RentPowerHero } from "@/components/rentpower/hero"
+import { RentPowerBrands } from "@/components/rentpower/brands-carousel"
 import { RentPowerTrust } from "@/components/rentpower/trust"
 import { RentPowerValue } from "@/components/rentpower/value-proposition"
 import { RentPowerEcosystem } from "@/components/rentpower/ecosystem"
@@ -15,6 +16,7 @@ export default function RentPowerPage() {
     <>
       <RentPowerNav />
       <RentPowerHero />
+      <RentPowerBrands />
       <RentPowerTrust />
       <RentPowerValue />
       <RentPowerEcosystem />

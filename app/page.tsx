@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { RentPowerHero } from "@/components/rentpower/hero"
+import { RentPowerBrands } from "@/components/rentpower/brands-carousel"
 import { RentPowerTrust } from "@/components/rentpower/trust"
 import { RentPowerValue } from "@/components/rentpower/value-proposition"
 import { RentPowerEcosystem } from "@/components/rentpower/ecosystem"
@@ -71,6 +72,7 @@ export default function HomePage() {
     >
       <RentPowerNav />
       <RentPowerHero />
+      <RentPowerBrands />
       <RentPowerTrust />
       <RentPowerValue />
       <RentPowerEcosystem />
