@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!rentpower|_next|favicon.ico).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?:.*\\.)?rentpower(?:-[^.]+)?\\.vercel\\.app"
+        }
+      ],
+      "destination": "/rentpower/:1"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?:.*\\.)?rentpower(?:-[^.]+)?\\.vercel\\.app"
+        }
+      ],
+      "destination": "/rentpower"
+    }
+  ]
+}
