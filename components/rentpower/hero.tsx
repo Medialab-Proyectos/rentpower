@@ -88,13 +88,6 @@ export function RentPowerHero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-xs text-white/60 tracking-wide" style={{ fontFamily: "var(--font-inter)" }}>
-                Mayorista tecnologico respaldado por DAGA Holding
-              </span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 animate-fade-in" style={{ fontFamily: "var(--font-space-grotesk)" }}>
               <span className="block text-white">Codifique su canal.</span>
               <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">

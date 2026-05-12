@@ -35,6 +35,21 @@ export const metadata: Metadata = {
     description:
       "RentPower codifica resellers y les entrega portafolio, acompanamiento comercial y soporte para revender soluciones tecnologicas en Colombia y Peru.",
     type: "website",
+    images: [
+      {
+        url: "/files/logooscuro.png",
+        width: 3222,
+        height: 912,
+        alt: "RentPower",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RentPower | Mayorista tecnologico para resellers LATAM",
+    description:
+      "RentPower codifica resellers y les entrega portafolio, acompanamiento comercial y soporte para revender soluciones tecnologicas en Colombia y Peru.",
+    images: ["/files/logooscuro.png"],
   },
 }
 

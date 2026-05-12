@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 export function RentPowerNav() {
@@ -23,12 +24,14 @@ export function RentPowerNav() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-sm" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            R
-          </div>
-          <span className="font-semibold text-lg" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            RentPower
-          </span>
+          <Image
+            src="/files/logclaro.png"
+            alt="RentPower"
+            width={180}
+            height={51}
+            priority
+            className="h-9 w-auto"
+          />
           <span className="hidden sm:inline-block text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded ml-1" style={{ fontFamily: "var(--font-inter)" }}>
             by DAGA Holding
           </span>

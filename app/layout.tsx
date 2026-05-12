@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next'
 import { Lato } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
-import { PageIntro } from "@/components/layout/page-intro"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -13,7 +12,6 @@ const lato = Lato({
 });
 
 import { StructuredData } from '@/components/structured-data'
-import { WatiWidget } from '@/components/shared/wati-widget'
 import { CookieConsent } from '@/components/shared/cookie-consent'
 
 export const metadata: Metadata = {
@@ -136,10 +134,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           enableSystem={false}
           disableTransitionOnChange
         >
-          <PageIntro />
           {children}
           <CookieConsent />
-          <WatiWidget />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

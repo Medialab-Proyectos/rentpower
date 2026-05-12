@@ -7,6 +7,11 @@ export function WatiWidget() {
   const pathname = usePathname();
   // Validar si la URL actual es o contiene labpower
   const isLabPower = pathname === '/labpower' || pathname?.includes('/labpower');
+  const isRentPower = pathname === '/rentpower' || pathname?.includes('/rentpower');
+
+  if (isRentPower) {
+    return null;
+  }
 
   if (isLabPower) {
     return (

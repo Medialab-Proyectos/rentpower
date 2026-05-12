@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export function RentPowerFooter() {
   return (
     <footer className="relative border-t border-white/5">
@@ -7,12 +9,13 @@ export function RentPowerFooter() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-sm" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                R
-              </div>
-              <span className="font-semibold text-lg" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                RentPower
-              </span>
+              <Image
+                src="/files/logclaro.png"
+                alt="RentPower"
+                width={190}
+                height={54}
+                className="h-10 w-auto"
+              />
               <span className="text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded" style={{ fontFamily: "var(--font-inter)" }}>
                 by DAGA Holding
               </span>
