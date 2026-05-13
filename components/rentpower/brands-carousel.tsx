@@ -53,20 +53,20 @@ export function RentPowerBrands() {
         {/* Scrolling track */}
         <div className="overflow-hidden">
           <div
-            className="animate-marquee flex items-center gap-8 md:gap-12"
+            className="animate-marquee flex items-center gap-6 md:gap-9"
             style={{ width: "max-content" }}
           >
             {[...brands, ...brands, ...brands, ...brands].map((brand, i) => (
               <div
                 key={`${brand.name}-${i}`}
-                className="group flex-shrink-0 flex items-center justify-center h-16 md:h-20 w-36 md:w-44 rounded-xl border border-white/5 bg-white/[0.02] px-6 py-4 transition-all duration-500 hover:border-white/15 hover:bg-white/[0.05]"
+                className="group flex-shrink-0 flex items-center justify-center h-24 md:h-32 w-52 md:w-72 rounded-xl border border-white/10 bg-white/[0.04] px-7 py-5 shadow-xl shadow-black/10 transition-all duration-500 hover:border-white/20 hover:bg-white/[0.07]"
               >
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={160}
-                  height={48}
-                  className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-40 transition-all duration-500 group-hover:opacity-90 group-hover:brightness-100 group-hover:invert-0"
+                  width={240}
+                  height={84}
+                  className="max-h-14 md:max-h-20 w-auto max-w-full object-contain brightness-0 invert opacity-65 transition-all duration-500 group-hover:opacity-95 group-hover:brightness-100 group-hover:invert-0"
                 />
               </div>
             ))}

@@ -7,11 +7,15 @@ const countryCtas = [
   {
     country: "Colombia",
     owner: "Especialista RentPower Colombia",
+    flag: "/images/rentpower/marcas/bandera-colombia.png",
+    flagAlt: "Bandera de Colombia",
     href: "https://wa.me/573001234567?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Colombia",
   },
   {
     country: "Peru",
     owner: "Especialista RentPower Peru",
+    flag: "/images/rentpower/marcas/bandera-peru.png",
+    flagAlt: "Bandera de Peru",
     href: "https://wa.me/51900123456?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Peru",
   },
 ]
@@ -58,16 +62,25 @@ export function RentPowerCTA() {
               className="group p-6 rounded-2xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] hover:border-blue-400/30 transition-all text-left"
             >
               <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 text-white/90 mb-2">
-                    <MapPin className="w-4 h-4 text-blue-400" />
-                    <span className="text-xl font-bold" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                      {cta.country}
-                    </span>
+                <div className="flex items-start gap-4">
+                  <Image
+                    src={cta.flag}
+                    alt={cta.flagAlt}
+                    width={56}
+                    height={56}
+                    className="h-12 w-12 rounded-full object-cover ring-1 ring-white/15 shadow-lg shadow-black/20"
+                  />
+                  <div>
+                    <div className="flex items-center gap-2 text-white/90 mb-2">
+                      <MapPin className="w-4 h-4 text-blue-400" />
+                      <span className="text-xl font-bold" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                        {cta.country}
+                      </span>
+                    </div>
+                    <p className="text-sm text-white/45" style={{ fontFamily: "var(--font-inter)" }}>
+                      {cta.owner}
+                    </p>
                   </div>
-                  <p className="text-sm text-white/45" style={{ fontFamily: "var(--font-inter)" }}>
-                    {cta.owner}
-                  </p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-white/35 group-hover:text-blue-300 group-hover:translate-x-1 transition-all" />
               </div>

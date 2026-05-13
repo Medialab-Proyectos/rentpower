@@ -23,9 +23,25 @@ export function RentPowerFooter() {
             <p className="text-sm text-white/40 max-w-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-inter)" }}>
               Mayorista de soluciones tecnologicas para resellers, distribuidores e integradores en Latinoamerica.
             </p>
-            <div className="flex items-center gap-2 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
+            <div className="flex items-center gap-3 text-xs text-white/30" style={{ fontFamily: "var(--font-inter)" }}>
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Activacion comercial en Colombia y Peru
+              <span>Activacion comercial en</span>
+              <div className="flex items-center gap-1.5">
+                <Image
+                  src="/images/rentpower/marcas/bandera-colombia.png"
+                  alt="Bandera de Colombia"
+                  width={28}
+                  height={28}
+                  className="h-6 w-6 rounded-full object-cover ring-1 ring-white/10"
+                />
+                <Image
+                  src="/images/rentpower/marcas/bandera-peru.png"
+                  alt="Bandera de Peru"
+                  width={28}
+                  height={28}
+                  className="h-6 w-6 rounded-full object-cover ring-1 ring-white/10"
+                />
+              </div>
             </div>
           </div>
 
@@ -48,7 +64,22 @@ export function RentPowerFooter() {
             </h4>
             <ul className="space-y-2 text-sm text-white/40" style={{ fontFamily: "var(--font-inter)" }}>
               <li>canales@rentpower.co</li>
-              <li>Colombia / Peru</li>
+              <li className="flex items-center gap-2">
+                <Image
+                  src="/images/rentpower/marcas/bandera-colombia.png"
+                  alt="Bandera de Colombia"
+                  width={24}
+                  height={24}
+                  className="h-5 w-5 rounded-full object-cover ring-1 ring-white/10"
+                />
+                <Image
+                  src="/images/rentpower/marcas/bandera-peru.png"
+                  alt="Bandera de Peru"
+                  width={24}
+                  height={24}
+                  className="h-5 w-5 rounded-full object-cover ring-1 ring-white/10"
+                />
+              </li>
               <li className="pt-2">
                 <a href="#contacto" className="text-blue-400/70 hover:text-blue-400 transition-colors">
                   Quiero ser reseller

@@ -5,7 +5,16 @@ import { Building2, Globe2, Route, ShieldCheck } from "lucide-react"
 
 const holdingStats = [
   { icon: Building2, value: "27+", label: "anos de trayectoria", description: "Base corporativa para operar tecnologia B2B con continuidad." },
-  { icon: Globe2, value: "CO / PE", label: "mercados activos", description: "Un mismo flujo comercial con derivacion por pais del reseller." },
+  {
+    icon: Globe2,
+    value: "mercados",
+    flags: [
+      { src: "/images/rentpower/marcas/bandera-colombia.png", alt: "Bandera de Colombia" },
+      { src: "/images/rentpower/marcas/bandera-peru.png", alt: "Bandera de Peru" },
+    ],
+    label: "mercados activos",
+    description: "Un mismo flujo comercial con derivacion por pais del reseller.",
+  },
   { icon: Route, value: "Canal", label: "modelo indirecto", description: "RentPower habilita resellers; el reseller conserva la relacion final." },
   { icon: ShieldCheck, value: "Soporte", label: "respaldo operativo", description: "Preventa, condiciones, escalamiento y seguimiento comercial." },
 ]
@@ -62,9 +71,24 @@ export function RentPowerTrust() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-400/20 bg-blue-400/5">
                     <stat.icon className="w-5 h-5 text-blue-300/80" />
                   </div>
-                  <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                    {stat.value}
-                  </div>
+                  {stat.flags ? (
+                    <div className="flex items-center gap-2">
+                      {stat.flags.map((flag) => (
+                        <Image
+                          key={flag.src}
+                          src={flag.src}
+                          alt={flag.alt}
+                          width={48}
+                          height={48}
+                          className="h-11 w-11 rounded-full object-cover ring-1 ring-white/15 shadow-lg shadow-black/20"
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                      {stat.value}
+                    </div>
+                  )}
                 </div>
                 <div className="text-sm font-semibold text-white/75 mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                   {stat.label}
