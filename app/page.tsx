@@ -28,7 +28,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "RentPower | Mayorista de soluciones tecnologicas para resellers",
   description:
-    "Mayorista de soluciones tecnologicas para resellers e integradores en LATAM. DaaS, cloud, networking, ciberseguridad, MDM y digital learning con respaldo de DAGA Holding.",
+    "Mayorista de soluciones tecnologicas para resellers e integradores en LATAM. DaaS, cloud, networking, ciberseguridad, MDM y digital learning con respaldo de DAGA Corporate.",
   keywords: [
     "mayorista tecnologia LATAM",
     "DaaS Colombia",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "networking empresas",
     "cloud LATAM",
     "RentPower",
-    "DAGA Holding",
+    "DAGA Corporate",
   ],
   openGraph: {
     title: "RentPower | Mayorista tecnologico para resellers LATAM",

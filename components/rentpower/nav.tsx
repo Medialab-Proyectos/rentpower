@@ -33,7 +33,7 @@ export function RentPowerNav() {
             className="h-9 w-auto"
           />
           <span className="hidden sm:inline-block text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded ml-1" style={{ fontFamily: "var(--font-inter)" }}>
-            by DAGA Holding
+            by DAGA Corporate
           </span>
         </div>
 

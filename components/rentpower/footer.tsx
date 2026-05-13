@@ -17,7 +17,7 @@ export function RentPowerFooter() {
                 className="h-10 w-auto"
               />
               <span className="text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded" style={{ fontFamily: "var(--font-inter)" }}>
-                by DAGA Holding
+                by DAGA Corporate
               </span>
             </div>
             <p className="text-sm text-white/40 max-w-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-inter)" }}>
@@ -60,7 +60,7 @@ export function RentPowerFooter() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-white/20" style={{ fontFamily: "var(--font-inter)" }}>
-            2026 RentPower - DAGA Holding. Todos los derechos reservados.
+            2026 RentPower - DAGA Corporate. Todos los derechos reservados.
           </div>
           <div className="flex items-center gap-6 text-xs text-white/20" style={{ fontFamily: "var(--font-inter)" }}>
             <a href="#" className="hover:text-white/40 transition-colors">Politica de privacidad</a>

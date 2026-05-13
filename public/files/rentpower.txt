@@ -53,7 +53,7 @@ Solo tomar inspiración visual y narrativa.
 CONTEXTO DEL NEGOCIO
 ====================================================
 
-RENTPOWER es un wholesaler de soluciones tecnológicas respaldado por DAGA Holding.
+RENTPOWER es un wholesaler de soluciones tecnológicas respaldado por DAGA Corporate.
 
 No vende directamente al consumidor final.
 
@@ -205,7 +205,7 @@ Debe explicar:
 - networking
 - ciberseguridad
 - digital learning
-- respaldo DAGA Holding
+- respaldo DAGA Corporate
 
 CTA principal:
 - “Conviértete en canal”
@@ -237,7 +237,7 @@ Agregar:
 Sección visual elegante.
 
 Mostrar:
-- DAGA Holding
+- DAGA Corporate
 - presencia LATAM
 - experiencia
 - empresas del grupo

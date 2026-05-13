@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 const stats = [
-  { value: "27+", label: "anos de respaldo DAGA" },
+  { value: "27+", label: "anos de respaldo DAGA Corporate" },
   { value: "Colombia", label: "operacion comercial" },
   { value: "Peru", label: "expansion regional" },
   { value: "B2B", label: "modelo para resellers" },
