@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: "RentPower | Mayorista de soluciones tecnologicas para resellers",
   description:
     "Mayorista de soluciones tecnologicas para resellers e integradores en LATAM. DaaS, cloud, networking, ciberseguridad, MDM y digital learning con respaldo de DAGA Corporate.",
+  icons: {
+    icon: [
+      { url: "/images/rentpower/favicon-rentpower.png", type: "image/png", sizes: "64x64" },
+    ],
+    shortcut: "/images/rentpower/favicon-rentpower.png",
+    apple: "/images/rentpower/favicon-rentpower.png",
+  },
   keywords: [
     "mayorista tecnologia LATAM",
     "DaaS Colombia",
@@ -59,10 +66,17 @@ export default function RentPowerLayout({
   children: React.ReactNode
 }) {
   return (
-    <div
-      className={`${spaceGrotesk.variable} ${inter.variable} min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden`}
-    >
-      {children}
-    </div>
+    <>
+      <head>
+        <link rel="icon" href="/images/rentpower/favicon-rentpower.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/rentpower/favicon-rentpower.png" />
+      </head>
+      <div
+        className={`${spaceGrotesk.variable} ${inter.variable} min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden`}
+      >
+        {children}
+      </div>
+    </>
   )
 }
+

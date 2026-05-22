@@ -10,11 +10,11 @@ export function RentPowerFooter() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <Image
-                src="/files/logclaro.png"
+                src="/images/rentpower/rentpower-white.svg"
                 alt="RentPower"
-                width={190}
-                height={54}
-                className="h-10 w-auto"
+                width={240}
+                height={68}
+                className="h-14 w-auto"
               />
               <span className="text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded" style={{ fontFamily: "var(--font-inter)" }}>
                 by DAGA Corporate

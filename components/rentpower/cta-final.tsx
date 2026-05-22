@@ -9,14 +9,14 @@ const countryCtas = [
     owner: "Especialista RentPower Colombia",
     flag: "/images/rentpower/marcas/bandera-colombia.png",
     flagAlt: "Bandera de Colombia",
-    href: "https://wa.me/573001234567?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Colombia",
+    href: "https://wa.me/16452234898?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Colombia",
   },
   {
     country: "Peru",
     owner: "Especialista RentPower Peru",
     flag: "/images/rentpower/marcas/bandera-peru.png",
     flagAlt: "Bandera de Peru",
-    href: "https://wa.me/51900123456?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Peru",
+    href: "https://wa.me/51974311109?text=Hola%2C%20quiero%20codificarme%20como%20reseller%20RentPower%20en%20Peru",
   },
 ]
 

@@ -25,12 +25,12 @@ export function RentPowerNav() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <Image
-            src="/files/logclaro.png"
+            src="/images/rentpower/rentpower-white.svg"
             alt="RentPower"
-            width={180}
-            height={51}
+            width={240}
+            height={68}
             priority
-            className="h-9 w-auto"
+            className="h-14 w-auto"
           />
           <span className="hidden sm:inline-block text-[10px] text-white/30 border border-white/10 px-1.5 py-0.5 rounded ml-1" style={{ fontFamily: "var(--font-inter)" }}>
             by DAGA Corporate
