@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Apple, Facebook, Twitter, Linkedin, Instagram, MapPin } from "lucide-react";
+import { MedialabCredit } from "@/components/layout/medialab-credit";
 
 const footerLinks = {
   apple: {
@@ -128,9 +129,10 @@ export function Footer() {
             &copy; {year ?? ""} MacPower. Todos los derechos reservados.
           </p>
 
-          <p className="text-xs text-muted-foreground">
-            Diseñado y desarrollado por MacPower
-          </p>
+          <MedialabCredit
+            className="text-xs text-muted-foreground"
+            dotClassName="ml-1 inline-block h-px w-px rounded-full bg-current align-middle"
+          />
         </div>
       </div>
     </footer>

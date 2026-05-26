@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { MedialabCredit } from "@/components/layout/medialab-credit"
 
 export function RentPowerFooter() {
   return (
@@ -93,9 +94,14 @@ export function RentPowerFooter() {
           <div className="text-xs text-white/20" style={{ fontFamily: "var(--font-inter)" }}>
             2026 RentPower - DAGA Corporate. Todos los derechos reservados.
           </div>
-          <div className="flex items-center gap-6 text-xs text-white/20" style={{ fontFamily: "var(--font-inter)" }}>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/20" style={{ fontFamily: "var(--font-inter)" }}>
             <a href="#" className="hover:text-white/40 transition-colors">Politica de privacidad</a>
             <a href="#" className="hover:text-white/40 transition-colors">Terminos</a>
+            <MedialabCredit
+              className="text-xs text-white/20"
+              dotClassName="ml-1 inline-block h-px w-px rounded-full bg-current align-middle"
+              hoverClassName="hover:text-white/40"
+            />
           </div>
         </div>
       </div>
