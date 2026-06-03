@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Monitor, Projector, Layers, Tv2, ArrowRight, CheckCircle, Award, Wrench, ShieldCheck, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const categories = [
     imageAlt: "Proyector láser ViewSonic en auditorio corporativo",
   },
   {
-    id: "interactivas",
+    id: "pantallasinteractivas",
     icon: Monitor,
     title: "Pantallas Interactivas ViewBoard",
     subtitle: "ViewBoard® · Colaboración inteligente",
@@ -73,7 +73,7 @@ const categories = [
     imageAlt: "Estación de trabajo con monitores profesionales ViewSonic",
   },
   {
-    id: "signage",
+    id: "digitalsignage",
     icon: Tv2,
     title: "Digital Signage",
     subtitle: "Pantallas comerciales e industriales",
@@ -101,9 +101,30 @@ export function ViewSonicProducts() {
   const cat = categories[active];
   const Icon = cat.icon;
 
+  // Read URL hash on mount to auto-select the correct tab
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      const idx = categories.findIndex((c) => c.id === hash);
+      if (idx !== -1) {
+        setActive(idx);
+        // Scroll to the portfolio section after a short delay
+        setTimeout(() => {
+          const section = document.getElementById("portafolio");
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 300);
+      }
+    }
+  }, []);
+
   const handleTabChange = (i: number) => {
     if (i === active) return;
     setAnimating(true);
+    // Update URL hash without triggering a scroll
+    const newHash = categories[i].id;
+    window.history.replaceState(null, "", `#${newHash}`);
     setTimeout(() => {
       setActive(i);
       setAnimating(false);
