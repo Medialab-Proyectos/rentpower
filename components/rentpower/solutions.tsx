@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Cloud, Globe, Lock, Monitor, Shield, Smartphone, Wifi } from "lucide-react"
+import { Cloud, Globe, Lock, Monitor, Recycle, Shield, Smartphone, Wifi } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const solutions = [
@@ -82,9 +82,20 @@ const solutions = [
     resellerUse: "Resellers que buscan una alternativa MDM cercana para clientes de Latinoamerica.",
     support: "Onboarding, capacitacion comercial y apoyo en implementacion.",
   },
+  {
+    id: "reacondicionados",
+    name: "Reacondicionados",
+    category: "Equipos Refurbished",
+    icon: Recycle,
+    color: "from-green-500 to-emerald-500",
+    tagline: "Equipos reacondicionados con garantia y calidad certificada",
+    description: "Portafolio de equipos reacondicionados grado A con garantia, listos para proyectos de volumen, educacion, gobierno y empresas que buscan optimizar presupuesto sin sacrificar rendimiento.",
+    resellerUse: "Resellers con clientes sensibles a precio, proyectos educativos, gobierno o renovaciones masivas de flota.",
+    support: "Catalogo actualizado, garantia, logistica y soporte postventa.",
+  },
 ]
 
-const brandStrip = ["WayGround", "Alkira", "SEQRITE", "Quick Heal", "Scalefusion", "Pulsus", "Luma Cloud"]
+const brandStrip = ["WayGround", "Alkira", "SEQRITE", "Quick Heal", "Scalefusion", "Pulsus", "Luma Cloud", "Reacondicionados"]
 
 export function RentPowerSolutions() {
   const [active, setActive] = useState(0)
@@ -111,11 +122,25 @@ export function RentPowerSolutions() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          {brandStrip.map((brand) => (
-            <div key={brand} className="px-4 py-2 rounded-lg border border-white/10 bg-white/[0.03] text-sm text-white/65" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-              {brand}
-            </div>
-          ))}
+          {brandStrip.map((brand) => {
+            const solIndex = solutions.findIndex((s) => s.name === brand)
+            const isActive = solIndex === active
+            return (
+              <button
+                key={brand}
+                onClick={() => solIndex !== -1 && setActive(solIndex)}
+                className={cn(
+                  "px-4 py-2 rounded-lg border text-sm transition-all duration-300 cursor-pointer",
+                  isActive
+                    ? "border-blue-500/40 bg-blue-500/10 text-white"
+                    : "border-white/10 bg-white/[0.03] text-white/65 hover:border-white/20 hover:bg-white/[0.06] hover:text-white/80"
+                )}
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                {brand}
+              </button>
+            )
+          })}
         </div>
 
         <div className="grid lg:grid-cols-[280px_1fr] gap-6">
