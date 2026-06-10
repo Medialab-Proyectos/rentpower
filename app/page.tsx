@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/files/logooscuro.png",
-        width: 3222,
-        height: 912,
-        alt: "RentPower",
+        url: "/images/rentpower/rentpower-color.svg",
+        width: 1200,
+        height: 630,
+        alt: "RentPower - Mayorista tecnologico para resellers LATAM",
       },
     ],
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "RentPower | Mayorista tecnologico para resellers LATAM",
     description:
       "RentPower codifica resellers y les entrega portafolio, acompanamiento comercial y soporte para revender soluciones tecnologicas en Colombia y Peru.",
-    images: ["/files/logooscuro.png"],
+    images: ["/images/rentpower/rentpower-color.svg"],
   },
 }
 

@@ -2,26 +2,26 @@ import { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'MacPower IT Solutions',
-    short_name: 'MacPower',
-    description: 'Soluciones IT empresariales con Apple y marcas globales.',
+    name: 'RentPower | Mayorista tecnologico para resellers',
+    short_name: 'RentPower',
+    description: 'Mayorista de soluciones tecnologicas para resellers e integradores en LATAM.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0f172a',
-    theme_color: '#0f172a',
+    background_color: '#0a0e1a',
+    theme_color: '#0a0e1a',
     icons: [
       {
-        src: '/favicon.ico',
+        src: '/images/rentpower/marcas/favicon-Rentpower.svg',
         sizes: 'any',
-        type: 'image/x-icon',
+        type: 'image/svg+xml',
       },
       {
-        src: '/images/macpower-logo-color.svg',
+        src: '/images/rentpower/rentpower-color.svg',
         sizes: '192x192',
         type: 'image/svg+xml',
       },
       {
-        src: '/images/macpower-logo-color.svg',
+        src: '/images/rentpower/rentpower-color.svg',
         sizes: '512x512',
         type: 'image/svg+xml',
       },

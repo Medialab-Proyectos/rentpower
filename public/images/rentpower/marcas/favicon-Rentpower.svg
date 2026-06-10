@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 217.88 216.39">
+  <!-- Generator: Adobe Illustrator 30.5.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .st1 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .st2 {
+        fill: #0e1b2a;
+        mix-blend-mode: multiply;
+        opacity: .42;
+      }
+
+      .st3 {
+        isolation: isolate;
+      }
+
+      .st4 {
+        fill: #fefefe;
+        opacity: .93;
+      }
+
+      .st5 {
+        fill: url(#Degradado_sin_nombre_11);
+      }
+    </style>
+    <filter id="drop-shadow-1" x=".34" y="1.17" width="217.54" height="215.22" filterUnits="userSpaceOnUse">
+      <feOffset dx="1.49" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="0"/>
+      <feFlood flood-color="#000" flood-opacity=".45"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="Degradado_sin_nombre_11" data-name="Degradado sin nombre 11" x1="-179.94" y1="-43.7" x2="487.46" y2="350.54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8f26fb"/>
+      <stop offset=".17" stop-color="#8c27fa"/>
+      <stop offset=".28" stop-color="#832cfa"/>
+      <stop offset=".38" stop-color="#7335fa"/>
+      <stop offset=".47" stop-color="#5e42fa"/>
+      <stop offset=".56" stop-color="#4252fa"/>
+      <stop offset=".58" stop-color="#3958fa"/>
+      <stop offset=".98" stop-color="#3958fa"/>
+    </linearGradient>
+    <filter id="drop-shadow-2" x="0" y="0" width="217.54" height="215.22" filterUnits="userSpaceOnUse">
+      <feOffset dx="1.49" dy="0"/>
+      <feGaussianBlur result="blur1" stdDeviation="0"/>
+      <feFlood flood-color="#000" flood-opacity=".45"/>
+      <feComposite in2="blur1" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="st3">
+    <g id="Capa_1">
+      <g>
+        <g class="st0">
+          <rect class="st5" x=".34" y="1.17" width="216.05" height="215.22" rx="12.48" ry="12.48"/>
+        </g>
+        <g class="st1">
+          <rect class="st2" width="216.05" height="215.22" rx="12.48" ry="12.48"/>
+        </g>
+      </g>
+      <path class="st4" d="M95.94,133.71l-41.11-.67c-1.11-10.16-.52-19.73-.36-31.26,17.15-.46,33.72-.51,51.18-.1,11.09.27,19.95-6.93,20.71-17.66.73-10.33-7.78-19.8-19.25-19.88l-52.79-.36.17-31.14,51.08-.21c24.15-.1,44.7,15,50.7,36.91,6.48,23.69-4.31,47.59-26.52,58.87l32.88,55.36c-11.81,1.53-23.34.35-36.26.69l-30.4-50.58-.02.02Z"/>
+    </g>
+  </g>
+</svg>
