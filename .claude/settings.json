@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm build *)"
+      "Bash(pnpm build *)",
+      "Bash(python -c ' *)",
+      "Bash(python \"C:/Users/coben/AppData/Local/Temp/claude/e--Sitios-Macpower-Version-5/f5b516be-8b41-4a55-834e-6b33c5df6396/scratchpad/prep_images.py\")"
     ]
   }
 }

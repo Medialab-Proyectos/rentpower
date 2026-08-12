@@ -57,6 +57,16 @@ export const TIPO_LABEL: Record<EquipoTipo, string> = {
   aio: "Todo en uno",
 }
 
+/**
+ * Imagen de referencia por categoria (acuerdo con RentPower mientras llegan las fotos
+ * reales). Cualquier referencia que traiga su propia `imagen` la usa en lugar de esta.
+ */
+export const imagenPorTipo: Record<EquipoTipo, string> = {
+  portatil: "/images/rentpower/equipos/portatil.webp",
+  cpu: "/images/rentpower/equipos/cpu.webp",
+  aio: "/images/rentpower/equipos/aio.webp",
+}
+
 export const equipos: Equipo[] = [
   // ─────────────────────────────── PORTATILES ───────────────────────────────
   {

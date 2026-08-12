@@ -194,7 +194,8 @@ export function EquiposCatalogo() {
           className="mt-10 text-center text-[12px] text-white/45 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: "var(--font-inter)" }}
         >
-          {NOTA_PRECIOS}
+          Las fotos son imágenes de referencia de cada categoría; el equipo entregado
+          corresponde a la referencia y las especificaciones publicadas. {NOTA_PRECIOS}
         </p>
       </div>
     </section>

@@ -109,7 +109,7 @@ export function EquiposHero() {
             </div>
 
             <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm overflow-hidden aspect-[4/3] group">
-              <DeviceVisual equipo={laptop} />
+              <DeviceVisual equipo={laptop} priority />
               <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[#07080f] via-[#07080f]/70 to-transparent">
                 <div
                   className="text-sm font-semibold text-white/90"
