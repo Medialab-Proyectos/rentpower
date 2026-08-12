@@ -28,7 +28,16 @@
       "Bash(pnpm build:*)",
       "WebFetch(domain:rentpower.vercel.app)",
       "Bash(pnpm dev:*)",
-      "PowerShell(pnpm build *)"
+      "PowerShell(pnpm build *)",
+      "Bash(python -c \"print\\('python ok'\\)\")",
+      "Bash(pnpm build *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(grep -o \"group-open\\\\\\\\\\\\\\\\/ficha\\\\|:is\\(:where\\(.group\\\\\\\\\\\\\\\\/ficha\\)\\\\[open\\\\]\" .next/static/css/*.css)",
+      "Bash(grep -o \"group\\\\\\\\\\\\\\\\/ficha[^{]*{\" .next/static/chunks/*.css)",
+      "Bash(grep -o \".\\\\{0,90\\\\}ficha.\\\\{0,90\\\\}\" .next/static/chunks/5833ac08f4b4b68f.css)",
+      "Bash(python \"C:/Users/coben/AppData/Local/Temp/claude/e--Sitios-Macpower-Version-5/f5b516be-8b41-4a55-834e-6b33c5df6396/scratchpad/fix_accents.py\")",
+      "Bash(python -c ' *)",
+      "Bash(pnpm lint *)"
     ]
   }
 }
